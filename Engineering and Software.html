@@ -62,7 +62,7 @@
             font-size: 0.9rem;
         }
         .collapsible {
-            background-color: #007BFF;
+            background-color: #01b64c;
             color: white;
             cursor: pointer;
             padding: 15px;
@@ -74,7 +74,7 @@
             margin-top: 10px;
         }
         .collapsible:hover {
-            background-color: #0056b3;
+            background-color: #00683e;
         }
         .content {
             max-height: 0;
@@ -90,74 +90,117 @@
 </head>
 <body>
     <header>
-        <h1>Engineering and Software</h1>
+        <h1>Projects</h1>
     </header>
 
     <main>
-        <button class="collapsible">Masters Thesis: Applied Machine Learning for Low Contrast Segmentation</button>
+        <p>
+            In this section, I showcase some of the projects I've worked on. Most of them are from co-op positions or university projects.
+        </p>
+        <button class="collapsible">MASc Thesis: Segmenting Low Contrast Tracers with Convolutional Neural Networks</button>
         <div class="content">
+            <p>To summarize my thesis work, the goal was akin to finding needles in a haystack. The "haystack" was a paper handsheet, and the "needles" were pulp fibres coated with iron. These fibres were scanned using X-ray microcomputed tomography, presenting the challenge of very low contrast segmentation. I took a machine-learning approach for the problem.</p>
+            <p>The results of my thesis are illustrated below. On the left is the input data, and on the right is the segmented output, where the tracer pulp fibres are clearly identified. This segmentation is displayed in both a 3D view and a 2D slice for clarity.</p>
             <img src="Photos/Thesis/Results.png" alt="Thesis">
+            <p>
+                The architecture used for this example is based on U-Net and incorporates a custom layer I developed, called K-Origins. This layer significantly improves CNN performance for colour-based problems, such as identifying tracer particles.
+            </p>
             <img src="Photos/Thesis/Architecture.png" alt="Thesis">
+            <p>
+                Here are the training and testing pipelines I developed. You can find everything on my public GitHub page!
+            </p>
             <img src="Photos/Thesis/Pipeline.png" alt="Thesis">
+            <p>
+                The primary contribution of my work is the custom K-Origins layer I developed. Instead of relying on a pre-existing CNN, I approached the problem from the ground up, using synthetic data to design a network that learns exactly what I want it to. This process also allowed me to identify a key shortcoming in most CNNs: their limited ability to interpret relative intensities and colour information effectively.
+            </p>
+            <p>
+                The figures below illustrate how a network with K-Origins significantly outperforms one without it.
+                I present three examples across four cases, comparing two architectures: RFL14 and KRFL14. The only difference between them is that KRFL14 includes my custom K-Origins layer.
+                In all cases, the network with K-Origins produces usable segmentation results, highlighting its effectiveness. I also performed a significant number of additional tests found in my Thesis.
+            </p>
+            <p> Small one-target segmentation. </p>
             <img src="Photos/Thesis/L less RFL one class.png" alt="Thesis">
+
+            <p> Large one-target segmentation.</p>
             <img src="Photos/Thesis/L greater RFL one class.png" alt="Thesis">
+
+            <p> Small two-target segmentation, representing tracer segmentation.</p>
             <img src="Photos/Thesis/L less RFL two class.png" alt="Thesis">
+
+            <p>Large two-target segmentation, representing tracer segmentation.</p>
             <img src="Photos/Thesis/L greater RFL two class.png" alt="Thesis">
+
+            <p> The improvement is most significant when the mean of the intensity distributions is slightly varied between the targets. </p>
         </div>
 
-        <button class="collapsible">pH Measuring Device and Mathematical Modeling</button>
+        <button class="collapsible">Mathematical Modelling of Chemical Reaction Kinetics and Experiment Design</button>
         <div class="content">
-            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+            <p>
+                I designed a small experimental system that uses a pH probe to measure and convert pH values into a readable voltage, which is then amplified and stored over time (about 10 readings per second). This system was built for around $100, whereas a commercial device with similar functionality would cost $500 or more.
+            </p>
+            <p>
+                Using this system, I created a data library for a chemical reaction and attempted to fit the 10 coupled ODEs that describe the reaction in MATLAB. I successfully modeled the first half of the reaction, but encountered challenges fitting the second stage, where a new reactant was introduced into the system.
+            </p>
+            <p>
+                In addition to this, I developed small current-to-voltage switches that enabled the power from a large DAQ system to drive two horsepower pump drivers. This required BJT's and MOSFETS.
+            </p>
         </div>
 
         <button class="collapsible">Reverse Engineering a Syringe Driver's Control System</button>
         <div class="content">
-            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+            <p>
+                I reverse-engineered the electrical system and firmware of a syringe driver. By analyzing the circuit, I was able to design a control circuit and develop the necessary firmware. The final system was capable of pumping liquid at precise flow rates (microlitres per second) for a specific volume. This project was completed within two months.
+            </p>
             <img src="Photos/Syringe Drive/Syringe.jpg" alt="Project Dark">
         </div>
         
         <button class="collapsible">Miniature Thermal Cycler</button>
         <div class="content">
-            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+            <p>
+                I was tasked with building a mini oven for a small wafer chip containing cells. I designed and tested a complete closed-loop electrical system to power Peltier devices and monitor temperatures using a thermistor. I also implemented the basic firmware and designed the mechanical assembly, which included parts that were milled and others printed with high-resolution resin.
+            </p>
             <img src="Photos/Thermal Cycler/closeup.jpg" alt="Project Dark">
             <img src="Photos/Thermal Cycler/controls.jpg" alt="Project Dark">
+            
+            <p>
+                In hindsight, I consider this project a learning experience rather than a success. With only two months to complete it during my second year of university—before I had taken many courses that would have significantly improved my understanding—I faced many challenges. If I had the chance to revisit this project now, I am confident it would be very successful!
+            </p>
         
         </div>
 
         <button class="collapsible">Team Projects</button>
         <div class="content">
-            <p><b>Robot Competition Bot:</b> Made an autonomous robot that could navigate a course and collect objects. I worked
-            on the electrical system and the firmware for the "crane" arm, as well as various mechanical aspects.</p>
+            <p><b>Engineering Physics Robot Competition:</b> 
+                Our team built an autonomous robot capable of navigating a course and collecting objects. I worked on the electrical system and developed the firmware for the robot's "crane" arm, as well as minor mechanical suggestions.
+            </p>
             <img src="Photos/Robotics/ENPH 2.jpg" alt="Project Dark">
 
-            <p><b>Autonomous Agriculture Bot:</b> Used a pre-made bot to create a robot that learned about the environment through 
-            "trial and error" and neural networks to determine good and bad behaviour. I mainly helped with training and testing, 
-            as well as electrical and mechanical troubleshooting.</p>
+            <p><b>Autonomous Agriculture Robot:</b> 
+                Our team used a pre-made robot to create a basic navigation system that learned about its environment through "trial and error" and a neural network to identify "good" and "bad" behaviours. My main contributions were in training and testing, as well as troubleshooting the electrical and mechanical systems.
+            </p>
             <img src="Photos/Robotics/ROBOT.jpg" alt="Project Dark">
 
-            <p><b>Inductively Controlled RC Car:</b> Designed and created a RC car controlled by the electromagnetic signals from 
-                hand-made inductors. I primarily worked on firmware and the motors electrical, as well as creating 
-                hand-made photovoltiac sensors.
+            <p><b>Inductively Controlled RC Car:</b> 
+                 Our team designed and built an RC car controlled by electromagnetic signals from hand-made inductors. My main contributions included developing the firmware, working on the motor's electrical system, and creating hand-made photovoltaic sensors for additional autonomous functionality.
             </p>
             <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Project Dark">
 
-            <p><b>Breast-Cancer Classifier:</b> Created a reccurrent neural-network that took outputs from a convolutional
-            neural network and determined the cancer subtype of a pathology image.</p>
+            <p><b>Breast-Cancer Classifier:</b> 
+                Our team developed a recurrent neural network that processed outputs from a convolutional neural network to determine the cancer subtype of pathology images.
+            </p>
             
-            <p><b>License Plate Parser:</b> Created a autonomous simulated car that detects and parces license plates using convolutional 
-                neural networks. I worked on the license plate parser and detector</p>
+            <p><b>License Plate Parser:</b> 
+                Our team created an autonomous simulated car that detects and parses license plates using convolutional neural networks. My main contributions were in developing the license plate parser and detector.
+            </p>
         </div>
 
 
         <button class="collapsible">Other</button>
         <div class="content">
             <p>
-                Provided a proof of concept for high frequency inductive power transfer (~6MHz). Parasitics were very troublesome.
-            </p>
+                I provided a proof of concept for high-frequency inductive power transfer (~6 MHz). Parasitics proved to be very challenging at these frequencies.</p>
             <p>
-                Implemented communication protocols (TCP) between host computer and a heat chamber. Also re-wrote a light sensors firmware
-                to function properly based on the clients desired behaviour. Additionally wrote an automated serial number printing script,
-                wheras before hundreds of serial number stickers were manually typed and printed.
+                I implemented communication protocols (TCP) between a host computer and a heat chamber. Additionally, I rewrote the firmware for a light sensor to ensure it functioned according to the client's desired behaviour. I also developed an automated serial number printing script, which replaced the manual process of typing and printing hundreds of serial number stickers. 
             </p>
             
         </div>
