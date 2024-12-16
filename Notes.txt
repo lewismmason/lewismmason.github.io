@@ -1,0 +1,45 @@
+Skills (front page)
+
+School, relevant courses, and grades
+* quick description (grades aren't everything, but they demonstrate that I can learn and become good at essentially everything
+* table of all classes I've taken (title and desc), and grade
+
+Game Development
+* Project Dark Prototype
+	* Marketability
+	* Keys
+	* Level gen and room gen
+	* inventory system (expandable tetris inventory, with object interactions)
+	* Small gameplay
+* Dash For Your Life (Main Project)
+	* Marketability
+	* Android and IOS and PC
+	* Horror-multitask platformer
+* Un-named card game
+	* Minimal descriptions
+
+
+Engineering, Prototyping, and Firmware
+* Additional (no or cant share photos)
+* Syringe Driver
+* pH meter
+* mini thermal-cycler (only 2 months)
+* High frequency wireless power transfer (~6MHz power transfer to excite things)
+* Team-based robotics (usually did electrical/firmware):
+	Robotics (ENPH stuff) (just show pictures of projects)
+
+
+Software
+* masters thesis and description
+* Cancer classifier
+* Mathematical and physics-based simulations (nanvier-stokes, finite differences, finite elements, more)
+* most other projects involve firmware
+
+
+Additional:
+* Youtuber and Twitch Streamer
+* Year rep for ENPH, and grad rep, hosted games nights and tournaments and helped with other aspects of the community
+* Cooking (life goal is to have an amazing kitchen)
+* Volleyball / archery
+* Gymming
+* Videogames (pretty good at FPS games, show pics of games I like/enjoy)

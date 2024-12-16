@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other</title>
+    <style>
+        ul {
+            list-style: none; /* Removes the bullets */
+            padding: 0;       /* Removes padding from the list */
+            text-align: center;
+        }
+
+        li {
+            margin: 5px 0; /* Adds spacing between items */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 0;
+            width: 500px;
+            height: auto;
+        }
+        main {
+            max-width: 800px;
+            padding: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .collapsible {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            text-align: left;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .collapsible:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f4f4f4;
+            padding: 0 15px;
+        }
+        .content p {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Other</h1>
+    </header>
+
+    <main>
+        <button class="collapsible">Community</button>
+        <div class="content">
+            <p>Twitch: I have a small Twitch channel with 14k followers</p>
+            <p>YouTube: I have a small YouTube channel with 19k subscribers!</p>
+            <p>Discord: I own a Discord server with over 800 members!</p>
+       
+        </div>
+        
+        <button class="collapsible">Videogames</button>
+        <div class="content">
+            <p>I have played videogames my whole life, here are some of my favorites!</p>
+        </div>
+
+
+        <button class="collapsible">Activities</button>
+        <div class="content">
+            <p><b>Cooking:</b>I love cooking, a life goal of mine is to have the most impressive kitchen you could imagine.</p>
+            <p><b>Volleyball:</b>I</p>
+            <p><b>Archery:</b>I love cooking, a life goal of mine is to have the most impressive kitchen you could imagine.</p>
+            <p><b>Gymming:</b>I love cooking, a life goal of mine is to have the most impressive kitchen you could imagine.</p>
+            <p><b>Board Games:</b>I love cooking, a life goal of mine is to have the most impressive kitchen you could imagine.</p>
+        
+        </div>
+
+        <a href="index.html">Return to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lewis Mason</p>
+    </footer>
+
+    <script>
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

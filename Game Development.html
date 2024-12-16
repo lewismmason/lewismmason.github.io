@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development</title>
+    <style>
+        ul {
+            list-style: none; /* Removes the bullets */
+            padding: 0;       /* Removes padding from the list */
+            text-align: center;
+        }
+
+        li {
+            margin: 5px 0; /* Adds spacing between items */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 0;
+            width: 500px;
+            height: auto;
+        }
+        main {
+            max-width: 800px;
+            padding: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .collapsible {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            text-align: left;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .collapsible:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f4f4f4;
+            padding: 0 15px;
+        }
+        .content p {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Game Development</h1>
+    </header>
+
+    <main>
+        <p>
+            I am a self-taught game developer, as it is something that I am very passionate about.
+            The items listed below are non-exhaustive. I have cancelled many projects due to me not deeming them fun enough, 
+            marketable enough, or due to other aspects I dislike about them.
+        </p>
+        <button class="collapsible"> Codename Project Dark</button>
+        <div class="content">
+            <p>
+                Project Dark is a long term project that I am working on. 
+                Explore a haunted randomly generated mansion and collect treasure along the way.
+                The images below are early prototype images, the artwork is not finalized and I plan on paying
+                artists to do pixel art. However, many systems are implemented, and I think they are impressive.
+            </p>
+
+            <img src="Photos/Game Development/PD 1.png" alt="Project Dark">
+            <p>
+                I designed and implemented an expandable "Tetris" inventory, where treasure has to be rotated to fit within your slots.
+                It works with any shape imagineable. There are also item interactions, such as breaking vases to see if there are coins
+                within, and item-item interactions (similar to crafting).
+            </p>
+            <img src="Photos/Game Development/PD 2.png" alt="Project Dark">
+            <p>
+                I designed an implemented a random level generator that has some of the coolest
+                looking layouts I have ever seen. The level is divided into randomly sized chunks which make up rooms. Chunks can 
+                also be connected to eachother to create unique room shapes. Rooms can be different types such as hallways, gardens,
+                kitchens, libraries, and more. Additionally, the individual rooms have their own generation, they can be any shape
+                such as circles, or even more crazy shapes (I only show square rooms here).
+            </p>
+            <img src="Photos/Game Development/PD 4.png" alt="Project Dark">
+            <p>
+                Example of a basic library room. Again, all artwork is placeholder.
+            </p>
+            <img src="Photos/Game Development/PD 3.png" alt="Project Dark">
+            
+            <p>
+                I have been building the game by creating, having playtesters feedback, fixing, and repeating that cycle. 
+                Currently, it is in an amazing spot and most playtesters like the game.
+                Additionally I have taken many steps to make it
+                marketable and hopefully go viral. However, because I have never made a game before I'm putting this on hold
+                until I finish "Dash For Your Life", which is extremely marketable based on my Geometry Dash community connections.
+            </p>
+        </div>
+
+        <button class="collapsible"> Dash For Your Life</button>
+        <div class="content">
+            <p>
+                Dash For Your Life is an autoscroller platformer "horror" game based on the popular title "Geometry Dash", where you
+                dash through levels and have to solve miniature puzzles and remove distracting enemies to beat levels. It will be released
+                on PC, Android, and IOS and is a "simple" project compared to Project Dark.
+            </p>
+            <img src="Photos/Game Development/dfyl.png" alt="Project Dark">
+            <img src="Photos/Game Development/dfyl 2.png" alt="Project Dark">
+            <img src="Photos/Game Development/dfyl 3.png" alt="Project Dark">
+            <p>
+                While less technically impressive, this game is extremely marketable, tapping into the Geometry Dash community and
+                hopefully expanding into the child-freindly horror communities which are both very large, and hence is my primary focus right 
+                now. Additionally, as the game 
+                is mobile-freindly this makes it have an even wider audience. I have been using a set of playtesters from different communities to 
+                make sure the game is playable and enjoyable at many skill levels, which is extremely important for mobile games.
+            </p>
+        </div>
+        
+        <button class="collapsible"> Community Level Designer (Geometry Dash)</button>
+        <div class="content">
+            <p>
+                I was a community level designer in the videogame called "Geometry Dash." My levels have
+                collectively recieved over 2.95 million downloads. If you know anyone who plays community levels
+                ask them if they know any of mine!
+            </p>
+
+            <p>
+                <b>Night Rider:</b> Cyberpunk/Blade Runner themed collaboration with 40 creators that I organized and hosted.
+                Has been played over 575k times and at the time of release was considered one of the most beautiful levels ever.
+            </p>
+            <img src="Photos/Game Development/GD/nr.png" alt="Project Dark">
+
+            <p>
+                <b>Serpents Wrath:</b> A solo project, where you explore an ancient snake temple.
+                Has been played over 358k times and had the first randomized bossfight ever.
+                I consider this my magnum opus.
+            </p>
+            <img src="Photos/Game Development/GD/sw 2.png" alt="Project Dark">
+            <img src="Photos/Game Development/GD/sw.png" alt="Project Dark">
+
+            <p>
+                <b>Artificial Ascent:</b> Another collaboration that I was a co-host of (Organizer of the first half).
+                Has been played over 7.5 million times and is considered one of the most influential levels ever.
+                Was not posted on my account so it does not contribute to my personal level downloads!
+            </p>
+            <img src="Photos/Game Development/GD/aa.png" alt="Project Dark">
+
+
+            <p>
+                <b>El Dorado:</b> A solo project where you explore the jungle to find the lost city of gold.
+                Has been played over 472k times.
+            </p>
+            <img src="Photos/Game Development/GD/eldorado.jpg" alt="Project Dark">
+            <p>
+                I've made many more! Here are some pictures.
+            </p>
+            <img src="Photos/Game Development/GD/tota.png" alt="Project Dark">
+            <img src="Photos/Game Development/GD/natures essence.png" alt="Project Dark">
+            <img src="Photos/Game Development/GD/event horizon.png" alt="Project Dark">
+        
+        </div>
+        
+        <button class="collapsible">Unnamed Trading Card Game</button>
+        <div class="content">
+            <p>
+                I have developed a one-versus-one trading card game and have playtested it extensively. Because physical products cost a lot
+                to produce, this is put on hold until I get enough capital to pursue it. There are also some design issues I am not happy with
+                right now, as I feel the game is similar to chess right now and lacks turn-to-turn excitement that other games like
+                Marvel Snap or Balatro has. These issues have to
+                be addressed before I launch the game, and will decide if it ever gets launched. I am also trying to solidify some of the 
+                balancing issues that exist for "new" cards that would come from card packs, ensuring that there is room for new cards without
+                removing the usefulness of older ones. I really want to make a physical product, and a card game is the most feasable.
+            </p>
+            <img src="Photos/Game Development/card game 2.jpg" alt="Project Dark">
+        
+        </div>
+
+        <a href="index.html">Return to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lewis Mason</p>
+    </footer>
+
+    <script>
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

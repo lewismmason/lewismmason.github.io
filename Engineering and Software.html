@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering and Software</title>
+    <style>
+        ul {
+            list-style: none; /* Removes the bullets */
+            padding: 0;       /* Removes padding from the list */
+            text-align: center;
+        }
+
+        li {
+            margin: 5px 0; /* Adds spacing between items */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 0;
+            width: 500px;
+            height: auto;
+        }
+        main {
+            max-width: 800px;
+            padding: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .collapsible {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            text-align: left;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .collapsible:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f4f4f4;
+            padding: 0 15px;
+        }
+        .content p {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Engineering and Software</h1>
+    </header>
+
+    <main>
+        <button class="collapsible">Masters Thesis: Applied Machine Learning for Low Contrast Segmentation</button>
+        <div class="content">
+            <img src="Photos/Thesis/Results.png" alt="Thesis">
+            <img src="Photos/Thesis/Architecture.png" alt="Thesis">
+            <img src="Photos/Thesis/Pipeline.png" alt="Thesis">
+            <img src="Photos/Thesis/L less RFL one class.png" alt="Thesis">
+            <img src="Photos/Thesis/L greater RFL one class.png" alt="Thesis">
+            <img src="Photos/Thesis/L less RFL two class.png" alt="Thesis">
+            <img src="Photos/Thesis/L greater RFL two class.png" alt="Thesis">
+        </div>
+
+        <button class="collapsible">pH Measuring Device and Mathematical Modeling</button>
+        <div class="content">
+            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+        </div>
+
+        <button class="collapsible">Reverse Engineering a Syringe Driver's Control System</button>
+        <div class="content">
+            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+            <img src="Photos/Syringe Drive/Syringe.jpg" alt="Project Dark">
+        </div>
+        
+        <button class="collapsible">Miniature Thermal Cycler</button>
+        <div class="content">
+            <p>Description of Component 1 goes here. Add more details about this component if needed.</p>
+            <img src="Photos/Thermal Cycler/closeup.jpg" alt="Project Dark">
+            <img src="Photos/Thermal Cycler/controls.jpg" alt="Project Dark">
+        
+        </div>
+
+        <button class="collapsible">Team Projects</button>
+        <div class="content">
+            <p><b>Robot Competition Bot:</b> Made an autonomous robot that could navigate a course and collect objects. I worked
+            on the electrical system and the firmware for the "crane" arm, as well as various mechanical aspects.</p>
+            <img src="Photos/Robotics/ENPH 2.jpg" alt="Project Dark">
+
+            <p><b>Autonomous Agriculture Bot:</b> Used a pre-made bot to create a robot that learned about the environment through 
+            "trial and error" and neural networks to determine good and bad behaviour. I mainly helped with training and testing, 
+            as well as electrical and mechanical troubleshooting.</p>
+            <img src="Photos/Robotics/ROBOT.jpg" alt="Project Dark">
+
+            <p><b>Inductively Controlled RC Car:</b> Designed and created a RC car controlled by the electromagnetic signals from 
+                hand-made inductors. I primarily worked on firmware and the motors electrical, as well as creating 
+                hand-made photovoltiac sensors.
+            </p>
+            <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Project Dark">
+
+            <p><b>Breast-Cancer Classifier:</b> Created a reccurrent neural-network that took outputs from a convolutional
+            neural network and determined the cancer subtype of a pathology image.</p>
+            
+            <p><b>License Plate Parser:</b> Created a autonomous simulated car that detects and parces license plates using convolutional 
+                neural networks. I worked on the license plate parser and detector</p>
+        </div>
+
+
+        <button class="collapsible">Other</button>
+        <div class="content">
+            <p>
+                Provided a proof of concept for high frequency inductive power transfer (~6MHz). Parasitics were very troublesome.
+            </p>
+            <p>
+                Implemented communication protocols (TCP) between host computer and a heat chamber. Also re-wrote a light sensors firmware
+                to function properly based on the clients desired behaviour. Additionally wrote an automated serial number printing script,
+                wheras before hundreds of serial number stickers were manually typed and printed.
+            </p>
+            
+        </div>
+
+        <a href="index.html">Return to Home</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lewis Mason</p>
+    </footer>
+
+    <script>
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(button => {
+            button.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
