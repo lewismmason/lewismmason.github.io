@@ -24,6 +24,10 @@
             text-align: left;
             background-color: #f4f4f4;
             color: #333;
+            max-width: 100%;
+            margin: 10px;
+            width: 100%;
+
         }
         header {
             padding: 20px;
@@ -44,8 +48,10 @@
             height: auto;
         }
         main {
-            max-width: 800px;
+            max-width: 100%;
             padding: 20px;
+            width: 100%;
+            margin: 10px;
         }
         a {
             color: #007BFF;
@@ -115,7 +121,7 @@
             </p>
             <p>
                 The figures below illustrate how a network with K-Origins significantly outperforms one without it.
-                I present three examples across four cases, comparing two architectures: RFL14 and KRFL14. The only difference between them is that KRFL14 includes my custom K-Origins layer.
+                I present three examples across four cases, comparing two architectures: RFL14 and KRFL14. The only difference between the architectures is that KRFL14 includes my custom K-Origins layer.
                 In all cases, the network with K-Origins produces usable segmentation results, highlighting its effectiveness. I also performed a significant number of additional tests found in my Thesis.
             </p>
             <p> Small one-target segmentation. </p>
@@ -136,14 +142,28 @@
         <button class="collapsible">Mathematical Modelling of Chemical Reaction Kinetics and Experiment Design</button>
         <div class="content">
             <p>
-                I designed a small experimental system that uses a pH probe to measure and convert pH values into a readable voltage, which is then amplified and stored over time (about 10 readings per second). This system was built for around $100, whereas a commercial device with similar functionality would cost $500 or more.
+                I designed a small experimental system that uses a pH probe to measure and convert pH values into a readable voltage, which is then amplified and stored over time (about 10 readings per second). This system was built for around $100, whereas a commercial device with similar functionality would cost $1000 or more. 
             </p>
             <p>
-                Using this system, I created a data library for a chemical reaction and attempted to fit the 10 coupled ODEs that describe the reaction in MATLAB. I successfully modeled the first half of the reaction, but encountered challenges fitting the second stage, where a new reactant was introduced into the system.
+                <b>Note:</b> The images below are an early design. The final design was cleanly soldered and involved additional Op-Amps for some circuit modifications and noise reduction.
+            </p>
+            <img src="Photos/pH probe/ph.jpg" alt="Thesis">
+            <img src="Photos/pH probe/probe.png" alt="Thesis">
+            <p>
+                Using this system, I created a data library for a chemical reaction (based on Hydrogen ion concentration) and attempted to fit the 10 coupled ODEs that describe the reaction in MATLAB. I successfully modeled the first half of the reaction, but encountered challenges fitting the second stage, where a reactant B was introduced into the system. There were some pH-dependencies that could not be modelled correctly.
             </p>
             <p>
-                In addition to this, I developed small current-to-voltage switches that enabled the power from a large DAQ system to drive two horsepower pump drivers. This required BJT's and MOSFETS.
+                Reaction A system modelled and interpolated for different concentrations (around 8 coupled ODE's).
             </p>
+            <img src="Photos/pH probe/rxn good.png" alt="Thesis">
+            <p>
+                Reaction B Hydrogen progression, where reaction B begins at 1500 seconds. I was unable to get a satisfactory model that worked for both reaction A and reaction B. In the future, monitoring more than just the pH would be beneficial.
+            </p>
+            <img src="Photos/pH probe/rxn full.png" alt="Thesis">
+            <p>
+                In addition to this, I developed small digital current-to-voltage converters that allowed a DAQ to send signals to pump drivers.
+            </p>
+            <img src="Photos/pH probe/converters.jpg" alt="Thesis">
         </div>
 
         <button class="collapsible">Reverse Engineering a Syringe Driver's Control System</button>
