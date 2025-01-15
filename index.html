@@ -108,6 +108,24 @@
         .youtube-link a:hover {
             text-decoration: underline;
         }
+
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #555; /* Subtle grey for captions */
+        }
     </style>
 </head>
 
@@ -121,7 +139,7 @@
         </header>
         <div class="content-container">
             <main>
-                <p>Hey! I'm Lewis and welcome to my personal page. To summarize me best, I love to design and build things!</p>
+                <p>Hey! I'm Lewis and welcome to my personal page. To summarize me best, I love to create and build things!</p>
             </main>
         </div>
 
@@ -131,30 +149,83 @@
         <div class="content-container">
             <main>
                 <p>
-                    For my Masters of Applied Science thesis, I designed software pipelines and convolutional neural network architectures 
-                    to semantically segment low contrast tracer particles (pulp fibres).
+                    I have a Masters of Applied Science in Mechanical Engineering (Applied Machine Learning) and a Bachelors of Applied Science in Engineering Physics.
+                    This page mainly shows my hardware projects, however, I also have significant experience with software projects from both work and school.
                 </p>
-                <div class="content-figure"> <img src="Photos/Thesis/Results.png" alt="Games I like"> </div>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Thesis/Results.png" alt="Thesis Results"> 
+                        <figcaption>Figure: Thesis results in 3D and 2D for two samples. The problem solved is similar to finding a low contrast "needle-in-a-haystack" in volumetric X-ray images.</figcaption>
+                    </figure>
+                </div>
 
                 <p>
-                    Here are some independent projects I worked on, most of which are prototypes! They are all from co-op jobs. 
-                    I'm good at circuit design (analog and digital), software, firmware, mechanical design, and applied mathematics.
+                    Here are some independent projects I worked on, most of which are prototypes! They are all from co-op work positions. 
+                    They demonstrate electrical engineering (analog and digital), software, firmware, mechanical design, and applied mathematics.
                 </p>
                 
-                <div class="content-figure"> <img src="Photos/Thermal Cycler/controls.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Thermal Cycler/closup_better.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Syringe Drive/Syringe.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/pH probe/ph.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/pH probe/rxn good.png" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/pH probe/converters.jpg" alt="Games I like"> </div>
+                <div class="content-figure">
+                    <figure>
+                        <img src="Photos/Thermal Cycler/controls.jpg" alt="Thermal Cycler Electrical"> 
+                        <figcaption>Figure: Electrical circuit to drive a "mini-oven" with two Peltier devices.</figcaption>
+                    </figure> 
+                </div>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Thermal Cycler/closup_better.jpg" alt="Thermal Cycler Mechanical"> 
+                        <figcaption>Figure: Bottom half mechanical design for the "mini-oven."</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Syringe Drive/Syringe.jpg" alt="Syringe Driver"> 
+                        <figcaption>Figure: Reverse engineered a syringe driver electrical and firmware systems.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/pH probe/ph.jpg" alt="pH Circuit"> 
+                        <figcaption>Figure: Chemical reaction modelling, experimental circuit to read an amplified analog voltage from a pH probe.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/pH probe/rxn good.png" alt="Mathematical Fit"> 
+                        <figcaption>Figure: Chemical reaction modelling, mathematical fit of a system of ordinary differencial equations fit through experimental data. </figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure">
+                    <figure>
+                        <img src="Photos/pH probe/converters.jpg" alt="Electrical Converters">
+                        <figcaption>Figure: Current to voltage digital converters. Converst a binary 0-5mA signal to a 0-20V signal.</figcaption>
+                    </figure>
+                </div>
                 
 
                 <p>
-                    I've worked on many robotic team projects. Generally I develop electronics and firmware for controls. But I'm confident I can work on any part of a project!
+                    I've worked on many robotic team projects. Generally I develop electronics and firmware for controls. 
+                    But I'm confident I can work on any part of a project!
                 </p>
-                <div class="content-figure"> <img src="Photos/Robotics/ENPH 2.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Robotics/ROBOT.jpg" alt="Games I like"> </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Robotics/ENPH 2.jpg" alt="Physbot"> 
+                        <figcaption>Figure: Autonomous robot that grabs stones from on-top of posts with varying height. I worked on the electical system and the firmware for the grabber.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure">
+                    <figure>
+                        <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Elecbot"> 
+                        <figcaption>Figure: Electromagnetically controlled remote controlled car and signal emitter. I worked on the motor drivers and control system. </figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Robotics/ROBOT.jpg" alt="Agbot"> 
+                        <figcaption>Figure: Autonomous robot, uses machine learning to "learn" good and bad navigation behaviour with respect to obstacles. I worked on data collection and motor controls.</figcaption>
+                    </figure>
+                </div>
             
             </main>    
         </div>
@@ -165,21 +236,63 @@
         <div class="content-container">
             <main>
                 <p>
-                    I'm a self-taught game developer! Currently I'm working on two commercial projects and a card game.
+                    I'm a self-taught game developer! Currently I'm working on two commercial projects and a card game. 
+                    I use Godot, but have also tried GameMaker for additional projects not shown here.
                 </p>
 
                 <p>Game 1 (Main Project):</p>
-                <div class="content-figure"> <img src="Photos/Game Development/dfyl.png" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/dfyl 3.png" alt="Games I like"> </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/dfyl.png" alt="DFYL 1"> 
+                        <figcaption>Figure: Platformer game, where a monster "cube" chases after the player.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/dfyl 3.png" alt="DFYL 2"> 
+                        <figcaption>Figure: Player can interact with the level, solving mini-puzzles as they play.</figcaption>
+                    </figure>
+                </div>
                 
                 <p>Game 2 (Backlog):</p>
-                <div class="content-figure"> <img src="Photos/Game Development/art.jpeg" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/PD 1.png" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/PD 2.png" alt="Games I like"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/PD 4.png" alt="Games I like"> </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/art.jpeg" alt="PD Artwork"> 
+                        <figcaption>Figure: Basic sprites and artwork.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 1.png" alt="GP Demonstration"> 
+                        <figcaption>Figure: Screenshot from  in-game, the player is stuck in a haunted manor and has to escape while collecting treasure along the way.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 2.png" alt="Inventory System"> 
+                        <figcaption>Figure: Tetris-like inventory system that supports any shaped inventory and any shaped object.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 4.png" alt="Level Generation"> 
+                        <figcaption>Figure: Demonstration of levels created by my sophisticated level generation algorithm. 
+                            It creates some of the most interesting levels I have ever seen, all resembling a manor. Playable areas are 
+                            represented by coloured zones, and non-playable areas have a dark green texture with flowers dispersed.
+                            The colour of a room represents the key colour required to enter that area.
+                        </figcaption>
+                    </figure>
+                </div>
                 
-                <p>Card Game (I'm hiding details for obvious reasons):</p>
-                <div class="content-figure"> <img src="Photos/Game Development/card game 1.jpg" alt="Games I like"> </div>
+                <p>Card Game:</p>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/card game 1.jpg" alt="Card Game"> 
+                        <figcaption>Figure: The card game is finished, however due to the ease of copying a physical game I don't show it here. Instead, here are 
+                            very early card prototypes, which have been updated since.
+                        </figcaption>
+                    </figure>
+                </div>
                 
                 
             </main>    
@@ -193,7 +306,10 @@
                 <!-- Add your text and content here -->
                 
                 <p>I have played videogames my whole life, here are a few of my favorites:</p>
-                <div class="content-figure"> <img src="Photos/Other/games.png" alt="Games I like"> </div>
+                
+                <div class="content-figure"> 
+                    <img src="Photos/Other/games.png" alt="Games I like"> 
+                </div>
 
                 <p>I have a YouTube channel where I sometimes upload video game related videos:</p>
                 <div class="youtube-link">
@@ -218,12 +334,42 @@
                     My levels have been collectively downloaded over 2.95 million times! Here are some pictures of my levels:
                 </p>
 
-                <div class="content-figure"> <img src="Photos/Game Development/GD/nr.png" alt="Level"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/GD/sw.png" alt="Level"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/GD/eldorado.jpg" alt="Level"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/GD/event horizon.png" alt="Level"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/GD/natures essence.png" alt="Level"> </div>
-                <div class="content-figure"> <img src="Photos/Game Development/GD/tota.png" alt="Level"> </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/nr.png" alt="Level"> 
+                        <figcaption>Figure: Cyberpunk themed collaboration I hosted, organizing and merging the work of 40 builders.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/sw.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/eldorado.jpg" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/event horizon.png" alt="Level">
+                        <figcaption></figcaption>
+                    </figure> 
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/natures essence.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/tota.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
 
             </main>
         </div>
