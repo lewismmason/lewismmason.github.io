@@ -121,6 +121,8 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
+      text-align: center;
+      
     }
     #clear-btn:hover {
       background-color: #c0392b;
@@ -167,7 +169,9 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
-      height: auto;
+      /* height: auto; */
+      min-width: 100px;
+      width: fit-content;
       align-self: flex-start;
       margin-left: auto;
     }
@@ -181,25 +185,27 @@
       position: fixed;
       z-index: 1000;
       left: 0; top: 0;
-      width: auto; height: 100%;
+      width: 100vw; 
+      height: 100vh;
       overflow: auto;
       background-color: rgba(0,0,0,0.6);
       backdrop-filter: blur(3px);
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 0px;
     }
     .modal-content {
       background-color: white;
       border-radius: 10px;
-      max-width: 700px;
-      width: 100%;
+      max-width:700px;
+      width: 80vw;
       max-height: 80vh;
       display: flex;
       flex-direction: column;
       padding: 20px 30px;
       position: relative;
       box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      box-sizing: border-box;
     }
     .modal-close {
       position: absolute;
@@ -276,7 +282,8 @@
       line-height: 1.5;
       border-top: 1px solid #ddd;
       padding-top: 10px;
-      max-height: 250px;
+      width: auto;
+      /* max-height: pageY/2; */
     }
     /* Responsive tweaks */
     @media (max-width: 700px) {
@@ -327,6 +334,7 @@
   <button id="clear-btn">Clear All</button>
 
   <div class="container tags-bar" id="tags-bar">
+    
   </div>
 
   <div class="container">
