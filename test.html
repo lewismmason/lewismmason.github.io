@@ -39,13 +39,18 @@
       align-items: flex-end;
       margin-bottom: 10px;
       min-height: 100px;
-      flex-wrap: nowrap; /* wrap to new lines if needed */
-      padding-bottom: 100px; /* space for rotated tag names */
+      flex-wrap: nowrap;
+      padding-bottom: 100px;
       user-select: none;
       gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .tag {
-      width: 60px;
+      /* width: 20px;  <-- Remove this line */
+      flex: 1 1 0; /* Each tag takes equal width */
+      min-width: 30px; /* Prevents bars from getting too small */
+      max-width: 80px; /* Optional: prevents bars from getting too wide */
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -54,7 +59,7 @@
       margin: 0;
       transition: transform 0.2s ease;
       position: relative;
-      flex-shrink: 0;
+      flex-shrink: 1;
       border-radius: 8px 8px 0 0;
       box-shadow: none;
       user-select: none;
@@ -176,7 +181,7 @@
       position: fixed;
       z-index: 1000;
       left: 0; top: 0;
-      width: 100%; height: 100%;
+      width: auto; height: 100%;
       overflow: auto;
       background-color: rgba(0,0,0,0.6);
       backdrop-filter: blur(3px);
@@ -411,14 +416,14 @@
   ];
 
   const tags = [
-    'Machine Learning', 'Robotics', 'Programming', 'Data Science', 'Web Dev',
+    'Robotics', 'Machine Learning', 'Programming', 'Data Science', 'Web Dev',
     'Embedded Systems', 'Cloud', 'Game Dev', 'AI Research', 'DevOps'
   ];
 
   // Map human readable to css-friendly keys
   const tagToKey = {
-    'Machine Learning': 'machine-learning',
     'Robotics': 'robotics',
+    'Machine Learning': 'machine-learning',
     'Programming': 'programming',
     'Data Science': 'data-science',
     'Web Dev': 'web-dev',
