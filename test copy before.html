@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lewis Mason - Skills Portfolio</title>
+  <style>
+    :root {
+      --footer-spacing: 50px; /* Change this value to adjust space */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .about {
+      background-color: #eaf2f8;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      min-height: 100px;
+    }
+    .bar {
+      width: calc(100% / 17 - 8px);
+      height: 100px;
+      margin: 0 3px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      transition: transform 0.2s ease;
+    }
+    .bar:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    .bar-name {
+      margin-top: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+      color: #000;
+      position: relative;
+      transform-origin: top right;
+      transform: translateX(-50%) rotate(-45deg);
+      transition: color 0.3s ease;
+    }
+    .bar-fill {
+      width: 100%;
+      background-color: #3498db;
+      transition: height 0.3s ease;
+      border-radius: 5px 5px 0 0;
+      display: block;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: var(--footer-spacing);
+      margin-bottom: 50px;
+      color: #555;
+    }
+  </style>
+</head>
+
+
+
+
+<body>
+  <div class="container about">
+    <h1>About Me</h1>
+    <p>Hello! I'm Lewis Mason, a passionate engineer with experience in machine learning, robotics, programming, and more. Welcome to my skills portfolio!</p>
+  </div>
+  <div class="container">
+    <h2>My Skills Portfolio</h2>
+    <div class="footer">
+      Click a skill bar to see related projects and experiences!
+    </div>
+    <div class="menu" id="skill-menu">
+      <script>
+        const skills = [
+          'Machine Learning', 'Robotics', 'Programming', 'Data Science', 'Web Dev',
+          'Embedded Systems', 'DB Management', 'Cloud', 'Game Dev', 'Automation',
+          'AI Research', 'Signal Processing', 'System Design', 'DevOps', 'UI/UX Design',
+          'API Development', 'CI/CD Pipelines'
+        ];
+
+        skills.forEach((skill, index) => {
+          document.write(`<div class="bar" onclick="showSkill('${skill.toLowerCase().replace(/ /g, '-')})">
+            <div class="bar-fill" style="height: ${50 + (index % 7) * 10}%; background-color: hsl(${index * 20}, 70%, 50%);"></div>
+            <div class="bar-name">${skill}</div>
+          </div>`);
+        });
+      </script>
+    </div>
+    <div id="skill-content">
+      <!-- Skill content will be loaded here -->
+    </div>
+  </div>
+
+  <script>
+    function showSkill(skill) {
+      const skillContent = {
+        'machine-learning': `<h2>Machine Learning</h2><p>Projects and experiences related to machine learning.</p>`,
+        'robotics': `<h2>Robotics</h2><p>Robotics projects and skills overview.</p>`,
+        'programming': `<h2>Programming</h2><p>Programming languages and projects.</p>`
+      };
+      document.getElementById('skill-content').innerHTML = skillContent[skill] || '<h2>Skill Not Found</h2>';
+    }
+
+    // Hover effect to change bar-name color to bar-fill color
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.bar').forEach(bar => {
+        bar.addEventListener('mouseenter', () => {
+          const fillColor = bar.querySelector('.bar-fill').style.backgroundColor;
+          const barName = bar.querySelector('.bar-name');
+          barName.style.color = fillColor;
+        });
+        bar.addEventListener('mouseleave', () => {
+          const barName = bar.querySelector('.bar-name');
+          barName.style.color = '#000'; // original text color
+        });
+      });
+    });
+  </script>
+</body>
+</html>
