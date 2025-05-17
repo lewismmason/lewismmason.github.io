@@ -23,7 +23,7 @@
       margin-bottom: 20px;
     }
     .about {
-      background-color: #eaf2f8;
+      background-color: #fff;
       padding: 15px;
       margin-bottom: 20px;
       border-radius: 10px;
@@ -45,12 +45,13 @@
       gap: 10px;
       width: 100%;
       box-sizing: border-box;
+      ;
     }
     .tag {
       /* width: 20px;  <-- Remove this line */
       flex: 1 1 0; /* Each tag takes equal width */
       min-width: 30px; /* Prevents bars from getting too small */
-      max-width: 80px; /* Optional: prevents bars from getting too wide */
+      max-width: 200px; /* Optional: prevents bars from getting too wide */
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -317,23 +318,30 @@
 <body>
   <div class="container about">
     <h1>About Me</h1>
+
+    <!-- <img src="Photos/Profile Picture.jpg" alt="Profile Picture", width="50%"> -->
+
     <p>Hello! I'm Lewis Mason, a passionate engineer with experience in machine learning, robotics, programming, and more. Welcome to my skills portfolio!
+    
+    This page only shows executed projects that have hard outcomes, my experiences extend beyond this 
     </p>
 
-    <p>
-      Test 2
-    </p>
+    <h1>How I Like to Work</h1>
+    <p> You can put me on a team, give me no tasks, minimal introduction, and I will start to contribute and produce high quality work that benefits the company. I will find a way to add value, I can't help itI work best when I have the ability to chose what i work on, and actually make significant contributions to a company... I also believe I am very good at creating and executing high quality ideas -> ideas are worthless, but I know how to execute them. </p>
   </div>
 
-  <div class="container about">
+  <!-- <div class="container about">
     <h1>How To Use This Page</h1>
     <p>By default all projects are shown. The visible bar graphs are SELECTABLE categories, with heights representing how many projects on this page involve that category. Select one to see relevant projects with that category, or selecting multiple puts projects that involve overlap first, and then individual after.</p>
-  </div>
+  </div> -->
 
 
-  <button id="clear-btn">Clear All</button>
-
-  <div class="container tags-bar" id="tags-bar">
+  <div class="container">
+    <h1>How To Use This Page</h1>
+    <p>By default all projects are shown. The visible bar graphs are SELECTABLE categories, with heights representing how many projects on this page involve that category. Select one to see relevant projects with that category, or selecting multiple puts projects that involve overlap first, and then individual after.</p>
+    
+    <div class="tags-bar" id="tags-bar"></div>
+    <button id="clear-btn">Clear All</button>
     
   </div>
 
@@ -360,75 +368,298 @@
   const projects = [
     {
       id: 1,
-      title: "ML-Paper Classifier",
-      description: "Classifies academic papers into research categories.",
-      detailedDescription: `This project uses state-of-the-art NLP techniques to classify academic papers into categories like Machine Learning, Data Science, and AI Research. It processes large datasets with high accuracy.
-
-      Features include preprocessing text, training transformer-based models, and a user-friendly interface.`,
-      tags: ['machine-learning', 'data-science', 'ai-research','programming'],
+      title: "Thesis: 'Segmenting low contrast tracers in tomographic images with convolutional neural networks'",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
       images: [
-        "https://images.unsplash.com/photo-1531497865141-4f9a54b51c23?auto=format&fit=crop&w=600&q=80",
-        "https://images.unsplash.com/photo-1581093588401-9fdd1f30c6c8?auto=format&fit=crop&w=600&q=80"
+        "Photos/Thesis/Results.png"
       ]
     },
     {
       id: 2,
-      title: "Autonomous Drone Navigation",
-      description: "Navigate drones using sensor fusion.",
-      detailedDescription: `Implemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidance.
-
-      Tested extensively in simulation and real-world environments.`,
-      tags: ['robotics', 'embedded-systems', 'programming'],
+      title: "ArXiv Publication: 'K-Origins: Better Colour Quantification for Neural Networks'",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
       images: [
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-        "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80"
       ]
     },
     {
       id: 3,
-      title: "Personal Website",
-      description: "Designed and built a personal portfolio website.",
-      detailedDescription: `This website showcases projects, skills, and contact details, built with modern HTML, CSS, and JavaScript.
-
-      Focused on accessibility, responsiveness, and performance optimizations.`,
-      tags: ['web-dev', 'programming'],
+      title: "Autonomous Agricultural Robot Capstone",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
       images: [
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
       ]
     },
     {
       id: 4,
-      title: "Cloud Infrastructure Automation",
-      description: "Automated cloud deployments and scaling.",
-      detailedDescription: `Implemented infrastructure-as-code pipelines to automate cloud deployments, using tools like Terraform and Kubernetes.
-
-      Achieved zero-downtime deployments and auto-scaling features for resilient services.`,
-      tags: ['cloud', 'devops', 'programming'],
+      title: "Ovarian Cancer Classifier Capstone",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
       images: [
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
       ]
     },
     {
       id: 5,
-      title: "Turn-Based Strategy Game",
-      description: "Developed a turn-based game client in Godot.",
-      detailedDescription: `Built a turn-based strategy game client using Godot Engine with focus on UI/UX, multiplayer backend connectivity, and game mechanics design.
-
-      Includes polished animations and game state synchronization.`,
-      tags: ['game-dev', 'programming', 'game-dev', 'ai-research'],
+      title: "ENPH 343 Simulated Robot Competition",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
       images: [
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
-        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
       ]
-    }
+    },
+    {
+      id: 6,
+      title: "ELEC 291 Robot Competition",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 7,
+      title: "ENPH 253 Robot Competition",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 8,
+      title: "This Website!",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 23,
+      title: "Co-op: Test / Software Engineer Co-op at Airbeam Wireless Technologies Inc.",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 9,
+      title: "Co-op Project: Syringe Driver for UBC ECE",
+      description: "Co-op Project, etc",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 10,
+      title: "Co-op Project: Nanolitre Thermal Cycler for BC Cancer Research Centre",
+      description: "Co-op Project, etc",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 11,
+      title: "Co-op Project: Proof of Concept for High-Frequency Wireless CMUT Activation for Sonus Microsystems",
+      description: "Co-op Project, etc",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 12,
+      title: "Internship: Creating Experimental Equipment and Modelling a Chemical Reaction",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 13,
+      title: "Co-op: Materials Engineer For Bioform Technologies Inc.",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 14,
+      title: "LAN Rock-Paper-Scissors Game",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 15,
+      title: "Dash For Your Life Commercial Videogame",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 16,
+      title: "Project Dark Videogame Prototype",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 17,
+      title: "Physical Trading Card Game",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 18,
+      title: "Geometry Dash Level: Night Rider",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 19,
+      title: "Geometry Dash Level: Serpents Wrath",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 20,
+      title: "Geometry Dash Levels: More",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 21,
+      title: "UBC FilmfEUSt competition",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 22,
+      title: "Communities and Events Organization",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+    {
+      id: 23,
+      title: "Sports",
+      description: "Short summary",
+      detailedDescription: `Long summary`,
+      tags: [],
+      images: [
+      ]
+    },
+
+
+
+
+
+    // {
+    //   id: 101,
+    //   title: "ArXiv Publication: 'K-Origins: Better Colour Quantification for Neural Networks'",
+    //   description: "Classifies academic papers into research categories.",
+    //   detailedDescription: `This project uses state-of-the-art NLP techniques to classify academic papers into categories like Machine Learning, Data Science, and AI Research. It processes large datasets with high accuracy.
+
+    //   Features include preprocessing text, training transformer-based models, and a user-friendly interface.`,
+    //   tags: ['machine-learning', 'data-science', 'ai-research','programming'],
+    //   images: [
+    //     "https://images.unsplash.com/photo-1531497865141-4f9a54b51c23?auto=format&fit=crop&w=600&q=80",
+    //     "https://images.unsplash.com/photo-1581093588401-9fdd1f30c6c8?auto=format&fit=crop&w=600&q=80"
+    //   ]
+    // },
+    // {
+    //   id: 102,
+    //   title: "Autonomous Drone Navigation",
+    //   description: "Navigate drones using sensor fusion.",
+    //   detailedDescription: `Implemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidanceImplemented autonomous drone navigation with sensor fusion from LiDAR and IMU data. Includes path planning algorithms and real-time obstacle avoidance.
+
+    //   Tested extensively in simulation and real-world environments.`,
+    //   tags: ['robotics', 'embedded-systems', 'programming'],
+    //   images: [
+    //     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    //     "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80"
+    //   ]
+    // },
+    // {
+    //   id: 103,
+    //   title: "Personal Website",
+    //   description: "Designed and built a personal portfolio website.",
+    //   detailedDescription: `This website showcases projects, skills, and contact details, built with modern HTML, CSS, and JavaScript.
+
+    //   Focused on accessibility, responsiveness, and performance optimizations.`,
+    //   tags: ['web-dev', 'programming'],
+    //   images: [
+    //     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+    //   ]
+    // },
+    // {
+    //   id: 104,
+    //   title: "Cloud Infrastructure Automation",
+    //   description: "Automated cloud deployments and scaling.",
+    //   detailedDescription: `Implemented infrastructure-as-code pipelines to automate cloud deployments, using tools like Terraform and Kubernetes.
+
+    //   Achieved zero-downtime deployments and auto-scaling features for resilient services.`,
+    //   tags: ['cloud', 'devops', 'programming','test'],
+    //   images: [
+    //     "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+    //   ]
+    // },
+    // {
+    //   id: 105,
+    //   title: "Turn-Based Strategy Game",
+    //   description: "Developed a turn-based game client in Godot.",
+    //   detailedDescription: `Built a turn-based strategy game client using Godot Engine with focus on UI/UX, multiplayer backend connectivity, and game mechanics design.
+
+    //   Includes polished animations and game state synchronization.`,
+    //   tags: ['game-dev', 'programming', 'game-dev', 'ai-research','test'],
+    //   images: [
+    //     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
+    //     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80"
+    //   ]
+    // }
   ];
 
+  // These are the human-readable tags...
   const tags = [
     'Robotics', 'Machine Learning', 'Programming', 'Data Science', 'Web Dev',
-    'Embedded Systems', 'Cloud', 'Game Dev', 'AI Research', 'DevOps'
+    'Embedded Systems', 'Cloud', 'Game Dev', 'AI Research', 'DevOps','Test'
   ];
 
-  // Map human readable to css-friendly keys
+  // Map human readable to css-friendly keys...
   const tagToKey = {
     'Robotics': 'robotics',
     'Machine Learning': 'machine-learning',
@@ -439,7 +670,8 @@
     'Cloud': 'cloud',
     'Game Dev': 'game-dev',
     'AI Research': 'ai-research',
-    'DevOps': 'devops'
+    'DevOps': 'devops',
+    'Test': 'test'
   };
 
   let selectedTags = [];
@@ -504,7 +736,8 @@
       'cloud': '#34495e',
       'game-dev': '#e74c3c',
       'ai-research': '#8e44ad',
-      'devops': '#16a085'
+      'devops': '#16a085',
+      'test': '#16a085'
     };
     return colors[tagKey] || '#95a5a6';
   }
