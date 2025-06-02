@@ -1,370 +1,1271 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            background-color: #ffffff; /* Light green background */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lewis Mason Portfolio</title>
+  <style>
+    :root {
+      --footer-spacing: 50px;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .profile-img {
+      float: right;
+      width: 220px; /* or your preferred size */
+      max-width: 40%;
+      margin-left: 24px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 700px) {
+      .profile-img {
+        float: none;
+        display: block;
+        margin: 0 auto 16px auto;
+        width: 70vw;
+        max-width: 95vw;
+      }
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .about {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    /* Removed overflow-x and added wrap */
+    .tags-bar {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin-bottom: 10px;
+      min-height: 100px;
+      flex-wrap: nowrap;
+      padding-bottom: 100px;
+      user-select: none;
+      gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      ;
+    }
+    .tag {
+      /* width: 20px;  <-- Remove this line */
+      flex: 1 1 0; /* Each tag takes equal width */
+      min-width: 10px; /* Prevents bars from getting too small */
+      max-width: 200px; /* Optional: prevents bars from getting too wide */
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0;
+      transition: transform 0.2s ease;
+      position: relative;
+      flex-shrink: 1;
+      border-radius: 8px 8px 0 0;
+      box-shadow: none;
+      user-select: none;
+    }
+    .tag .bar-fill {
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+      transition: height 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      filter: brightness(0.85);
+    }
+    .tag.selected {
+      /* transform: scale(1.2); */
+      filter: brightness(1);
+      /* box-shadow: 0 0 15px 3px #3498dbcc; */
+      z-index: 10;
+    }
+    .tag.selected .bar-fill {
+      filter: brightness(1.3);
+      box-shadow: 0 0 10px 2px #2980b9;
+    }
+    .tag:hover:not(.selected) {
+      transform: scale(1.);
+      opacity: 0.9;
+    }
+    .tag-name {
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+      color: #000;
+      position: relative;
+      transform-origin: top right;
+      transform: translateX(-50%) rotate(-45deg);
+      transition: color 0.3s ease, font-size 0.3s ease;
+      user-select: none;
+    }
+    .tag.selected .tag-name {
+      color: #3498db;
+      font-weight: 900;
+      font-size: 14px;
+      text-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: var(--footer-spacing);
+      color: #555;
+    }
+    #clear-btn {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 14px;
+      font-weight: bold;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      
+    }
+    #clear-btn:hover {
+      background-color: #c0392b;
+    }
+    #skill-content > .project {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    #skill-content > .project:last-child {
+      border-bottom: none;
+    }
+    #skill-content h3 {
+      margin: 0 0 5px 0;
+    }
+    #skill-content p.description {
+      margin: 0 0 5px 0;
+      color: #333;
+      flex-grow: 1;
+    }
+    #skill-content p.tags {
+      font-size: 10px;
+      font-style: italic;
+      color: #666;
+      margin: 0 0 5px 0;
+    }
+    .project-img {
+      width: 20%;
+      min-width: 100px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 6px;
+      flex-shrink: 0;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      background-color: #eee;
+    }
+    .learn-more-btn {
+      padding: 6px 12px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      /* height: auto; */
+      max-width: 70px;
+      width: fit-content;
+      align-self: flex-start;
+      margin-left: auto;
+    }
+    .learn-more-btn:hover {
+      background-color: #2980b9;
+    }
 
-        .content-container {
-            width: 600px; /* Fixed width for the box */
-            background-color: #ffffff; /* Light background for contrast */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 90%;
-            padding: 20px;
-            box-sizing: border-box;
-            margin: 20px 0; /* Adds margin at the bottom */
-            border-radius: 10px; /* Rounded corners */
-            background-color: #e8f5e9; /* Soft green color */
-        }
+    /* Modal Styles */
+    .modal {
+      display: none; /* hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; 
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(3px);
+      align-items: center;
+      justify-content: center;
+      padding: 0px;
+    }
+    .modal-content {
+      background-color: white;
+      border-radius: 10px;
+      max-width:700px;
+      width: 80vw;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      box-sizing: border-box;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+      line-height: 1;
+    }
+    .modal-close:hover {
+      color: #e74c3c;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    /* Container for main image and thumbnails */
+    .modal-images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+    .modal-main-image {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      object-fit: contain;
+    }
+    .modal-thumbnails {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      width: 100%;
+      padding-bottom: 5px;
+      scrollbar-width: thin;
+      scrollbar-color: #3498db transparent;
+    }
+    .modal-thumbnails::-webkit-scrollbar {
+      height: 6px;
+    }
+    .modal-thumbnails::-webkit-scrollbar-thumb {
+      background-color: #3498db;
+      border-radius: 3px;
+    }
+    .modal-thumbnail {
+      width: 70px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease;
+      flex-shrink: 0;
+    }
+    .modal-thumbnail.selected {
+      border-color: #3498db;
+      box-shadow: 0 0 10px #3498db;
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-
-
-        }
-
-        header text {
-            text-align: center;
-            width: 600px;
-            max-width: 90%;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-
-        header img {
-            width: 600px;
-            max-width: 90%;
-            border-radius: 10px;
-        }
-
-        header h1 {
-            margin: 10px 0 0;
-            font-size: 1.8em;
-            /*color: #2e7d32; /* Dark green for text */
-        }
-
-        main {
-            font-size: 1em;
-            line-height: 1.6;
-            /*color: #1b5e20; /* Darker green for main text */
-        }
-
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            /*color: #33691e; /* Medium green for footer */
-        }
-
-        /* To center the header content above the rectangle */
-        .outer-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        .outer-container header {
-            margin-bottom: 10px;
-        }
-
-        .content-figure {
-            width: 100%;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .content-figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .youtube-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .youtube-link a {
-            font-size: 1em;
-            color: #0d47a1; /* Blue color for link */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .youtube-link a:hover {
-            text-decoration: underline;
-        }
-
-        figure {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        figcaption {
-            margin-top: 8px;
-            font-size: 0.9em;
-            color: #555; /* Subtle grey for captions */
-        }
-    </style>
+    .modal-description {
+      overflow-y: auto;
+      flex-grow: 1;
+      padding-right: 10px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+      width: auto;
+      /* max-height: pageY/2; */
+    }
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      .modal-content {
+        max-height: 90vh;
+        padding: 15px 20px;
+      }
+      .modal-main-image {
+        max-height: 200px;
+      }
+      .modal-thumbnail {
+        width: 50px;
+        height: 35px;
+      }
+    }
+  </style>
 </head>
 
+
+
+
+
+
+
+
+
+
+
+
+
 <body>
-    <div class="outer-container">
-        <header>
-            <h1>Lewis Mason</h1>
-
-            <img src="Photos/Profile Picture.jpg" alt="Profile Picture">
-
-        </header>
-        <div class="content-container">
-            <main>
-                <p>Hey! I'm Lewis and welcome to my personal page. To summarize me best, I love to create and build things!</p>
-            </main>
-        </div>
+  <div class="container about">
+    <img src="New Photos/ENPH253/Profile Picture.jpg" alt="Profile Picture" class="profile-img">
+    <h1>About Me</h1>
 
 
-        <h1>Technical Projects</h1>
+    <p>
+      Hello, I'm Lewis! Welcome to my portfolio page and to summarize it best, I love to build and design things!
+    </p>
 
-        <div class="content-container">
-            <main>
-                <p>
-                    I have a Masters of Applied Science in Mechanical Engineering (Applied Machine Learning) and a Bachelors of Applied Science in Engineering Physics.
-                    This page just shows a few projects that I am really proud of, but is non-exhaustive.
-                </p>
-
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Thesis/Results.png" alt="Thesis Results"> 
-                        <figcaption>Figure: Thesis results in 3D and 2D for two samples. The problem solved is similar to finding a low contrast "needle-in-a-haystack" in volumetric X-ray images.</figcaption>
-                    </figure>
-                </div>
-
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Syringe Drive/Syringe.jpg" alt="Syringe Driver"> 
-                        <figcaption>Figure: Reverse engineered a syringe driver electrical and firmware systems.</figcaption>
-                    </figure>
-                </div>
-                
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Robotics/ENPH 2.jpg" alt="Physbot"> 
-                        <figcaption>Figure: Autonomous robot that grabs stones from on-top of posts with varying height. I worked on the electical system and the firmware for the grabber.</figcaption>
-                    </figure>
-                </div>
-                
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Robotics/ENPH 3.jpg" alt="Physbot"> 
-                        <figcaption>Figure: Another angle for the stone-grabbing robot demonstrating my electrical work (the "power tower" and many other components).</figcaption>
-                    </figure>
-                </div>
-
-                <div class="content-figure">
-                    <figure>
-                        <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Elecbot"> 
-                        <figcaption>Figure: Electromagnetically controlled remote controlled car and signal emitter. I worked on the motor drivers and control system as well as bonus autonomous functionality. Our team placed first out of over 50 teams and set a speed-record.</figcaption>
-                    </figure>
-                </div>
-
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Robotics/ROBOT.jpg" alt="Agbot"> 
-                        <figcaption>Figure: Autonomous robot, uses machine learning to "learn" good and bad navigation behaviour with respect to obstacles. I worked on data collection and motor controls and help with training the network.</figcaption>
-                    </figure>
-                </div>
-            
-            </main>    
-        </div>
-
-
-        <h1>Game Development</h1>
-
-        <div class="content-container">
-            <main>
-                <p>
-                    I'm a self-taught game developer! Currently I'm working on two commercial projects and a card game. 
-                    I use Godot, but have also tried GameMaker for additional projects not shown here. Also, these pictures are mostly outdated!
-                </p>
-
-                <p>Game 1 (Main Project):</p>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/DFYL 1.png" alt="DFYL 1"> 
-                        <figcaption>Figure: Platformer game title screen.</figcaption>
-                    </figure>
-                </div>
-                
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/dfyl 2.png" alt="DFYL 1"> 
-                        <figcaption>Figure: Platformer game player customization.</figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/dfyl 3.png" alt="DFYL 1"> 
-                        <figcaption>Figure: Platformer game level editor (Work in progress).</figcaption>
-                    </figure>
-                </div>
-
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/DFYL 4.png" alt="DFYL 1"> 
-                        <figcaption>Figure: Platformer game, playing the built level.</figcaption>
-                    </figure>
-                </div>
-                
-                <p>Game 2 (Backlog):</p>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/art.jpeg" alt="PD Artwork"> 
-                        <figcaption>Figure: Basic sprites and artwork.</figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/PD 1.png" alt="GP Demonstration"> 
-                        <figcaption>Figure: Screenshot from  in-game, the player is stuck in a haunted manor and has to escape while collecting treasure along the way.</figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/PD 2.png" alt="Inventory System"> 
-                        <figcaption>Figure: Tetris-like inventory system that supports any shaped inventory and any shaped object.</figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/PD 4.png" alt="Level Generation"> 
-                        <figcaption>Figure: Demonstration of levels created by my sophisticated level generation algorithm. 
-                            It creates some of the most interesting levels I have ever seen, all resembling a manor. Playable areas are 
-                            represented by coloured zones, and non-playable areas have a dark green texture with flowers dispersed.
-                            The colour of a room represents the key colour required to enter that area.
-                        </figcaption>
-                    </figure>
-                </div>
-                
-                <p>Card Game:</p>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/card game 1.jpg" alt="Card Game"> 
-                        <figcaption>Figure: The card game is finished, however due to the ease of copying a physical game I don't show it here. Instead, here are 
-                            very early card prototypes, which have been updated since.
-                        </figcaption>
-                    </figure>
-                </div>
-                
-                
-            </main>    
-        </div>
-
-
-        <h1>Video Games and Socials</h1>
-
-        <div class="content-container">
-            <main>
-                <!-- Add your text and content here -->
-                
-                <p>I have played videogames my whole life, here are a few of my favorites:</p>
-                
-                <div class="content-figure"> 
-                    <img src="Photos/Other/games.png" alt="Games I like"> 
-                </div>
-
-                <p>I have a YouTube channel where I sometimes upload video game related videos:</p>
-                <div class="youtube-link">
-                    <a href="https://www.youtube.com/@LmAnubis" target="_blank">Visit my YouTube Channel</a>
-                </div>
-
-                <p>I have a Twitch channel where I stream either game development or, less frequently, video games:</p>
-                
-                <div class="youtube-link">
-                    <a href="https://www.twitch.tv/lmanubis" target="_blank">Visit my Twitch Channel</a>
-                </div>
-                
-                <p>I also run a small Discord server for my YouTube and Twitch communities:</p>
-
-                <div class="youtube-link">
-                    <a href="https://discord.gg/QgQJ2HduFc" target="_blank">Visit my Discord Server</a>
-                </div>
-
-
-                <p>
-                    I used to be a community level designer for the video game called "Geometry Dash."
-                    My levels have been collectively downloaded over 2.95 million times! Here are some pictures of my levels:
-                </p>
-
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/nr.png" alt="Level"> 
-                        <figcaption>Figure: Cyberpunk themed collaboration I hosted, organizing and merging the work of 40 builders.</figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/sw.png" alt="Level"> 
-                        <figcaption></figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/eldorado.jpg" alt="Level"> 
-                        <figcaption></figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/event horizon.png" alt="Level">
-                        <figcaption></figcaption>
-                    </figure> 
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/natures essence.png" alt="Level"> 
-                        <figcaption></figcaption>
-                    </figure>
-                </div>
-                <div class="content-figure"> 
-                    <figure>
-                        <img src="Photos/Game Development/GD/tota.png" alt="Level"> 
-                        <figcaption></figcaption>
-                    </figure>
-                </div>
-
-            </main>
-        </div>
-
-        <div class="content-container">
-            <footer>
-                <!-- Add footer content here -->
-                <p>&copy; 2025 Lewis Mason. All rights reserved.</p>
-            </footer>
-        </div>
-
-
-
+    <h1>How I Like to Work</h1>
+    <button id="toggle-work-btn" type="button">Read</button>
+    <div id="work-section" style="display:none;">
+      <p>
+        My ideal scenario is joining a project with minimal guidance and independently identifying ways to add value. I thrive in autonomous environments, quickly getting up to speed and contributing meaningfully with little assistance.       </p>
+      <p>
+        I often take the lead in designing and executing projects. I'm comfortable joining a team, identifying high-impact opportunities, and driving them from concept to completion. Regardless of the domain, I learn quickly and rely on strong fundamentals to contribute meaningfully. My broad experience across engineering disciplines reflects this adaptability.
+      </p>
+      <p>
+        While I’m comfortable working independently, I thrive in collaborative environments and believe the best solutions emerge from shared input.
+      </p>
+      <p>
+        I think you will find that in pretty much every project I’ve worked on, I’ve gone above and beyond—doing more than what was expected of me.      
+      </p>
+      </div>
+    
+    <h1>My Story</h1>
+    <button id="toggle-story-btn" type="button">Read</button>
+    <div id="story-section" style="display:none;">
+      <p>
+        This section explains why my engineering background is so broad. I started in general engineering, then switched to electrical engineering, where I explored hardware, firmware, and software. Wanting a deeper understanding of first principles, I transitioned to engineering physics; diving into math, computational methods, physics, and electrical engineering through electives, while also gaining exposure to mechanical engineering.      </p>
+      <p>
+        In total, I completed around 67 undergraduate courses (over 210 credits) and 5 more during my master’s program. My co-op positions exposed me to a variety of unique technologies, further expanding my experience. I also completed two machine learning–focused capstone projects, which sparked my interest and ultimately led me to pursue a Master of Applied Science in applied machine learning. This was administered through mechanical engineering for logistical reasons.      </p>
+      <p>
+        Along the way, I became highly skilled in programming and discovered a real passion for it. Combined with my love of video games, this has led me to start building my own. So yes, I’ve done a bit of everything, and I genuinely enjoy nearly every area of engineering. Best of all, I’m well-equipped to contribute meaningfully to almost any project.      </p>
     </div>
+
+  </div>
+
+
+  <div class="container about">
+    <h1>How To Use This Page</h1>
+    
+    <button id="toggle-howto-btn" type="button">Read</button>
+    <div id="howto-section" style="display:none;">
+      <ul>
+        <li>This page only shows measurable projects that I deem significant.</li>
+        <li>These projects demonstrate some of the things I can and like to work on. </li>
+        <li>The height of a bar graph below represents the number of projects on this page that involve that topic.</li>
+        <li>These bars are SELECTABLE, click one to see only projects that include that skill.</li>
+        <li>If multiple are selected, the first projects listed will include overlaps of the selected skills.</li>
+        <li>Press "Clear All" to reset selections.</li>
+      </ul>
+    </div>
+
+
+
+    <div class="tags-bar" id="tags-bar"></div>
+    <button id="clear-btn">Clear All</button>
+    
+  </div>
+
+  <div class="container">
+    <div id="skill-content"></div>
+  </div>
+
+  <!-- Modal for project details -->
+  <div id="project-modal" class="modal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-content" role="document">
+      <span id="modal-close" class="modal-close" aria-label="Close modal">&times;</span>
+      <h2 id="modal-title"></h2>
+      <div class="modal-images">
+        <img id="modal-main-img" class="modal-main-image" src="" alt="Project main image" />
+        <div id="modal-thumbnails" class="modal-thumbnails"></div>
+      </div>
+      <div id="modal-desc" class="modal-description"></div>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('toggle-work-btn').addEventListener('click', function() {
+    const section = document.getElementById('work-section');
+    if (section.style.display === 'none') {
+      section.style.display = 'block';
+      this.textContent = 'Hide';
+    } else {
+      section.style.display = 'none';
+      this.textContent = 'Read';
+    }
+  });
+
+  // Toggle "My Story"
+  document.getElementById('toggle-story-btn').addEventListener('click', function() {
+    const section = document.getElementById('story-section');
+    if (section.style.display === 'none') {
+      section.style.display = 'block';
+      this.textContent = 'Hide';
+    } else {
+      section.style.display = 'none';
+      this.textContent = 'Read';
+    }
+  });
+
+  document.getElementById('toggle-howto-btn').addEventListener('click', function() {
+    const section = document.getElementById('howto-section');
+    if (section.style.display === 'none') {
+      section.style.display = 'block';
+      this.textContent = 'Hide';
+    } else {
+      section.style.display = 'none';
+      this.textContent = 'Read';
+    }
+  });
+
+
+
+
+
+
+
+
+  //#region 
+  const projects = [
+    {
+      id: 1,
+      title: "Masters Thesis: 'Segmenting low contrast tracers in tomographic images with convolutional neural networks'",
+      description: "Applied machine learning for a needle-in-a-haystack-like problem.",
+      detailedDescription: [
+        { heading: "Context", content: "Sponsored by the pulp and paper industry, my thesis addressed the challenge of analyzing tracer particle distributions in paper handsheets. Working with my supervisor, who had also overseen my role at Bioform Technologies Inc., we used X-ray microtomography for imaging and found that the tracer particles had lower-than-ideal contrast, making analysis difficult. This became the core of my thesis, where I successfully developed pipelines and methods to segment these particles." },
+        { heading: "Level of Independence", content: "Moderate Independence: I regularly consulted with my supervisor, who offered valuable suggestions and feedback throughout the project. However, since they did not have a background in machine learning, much of the problem-solving, research, and execution was left to me." },
+        { heading: "Contributions", content: { type: "list", items: [
+            { type: "link", text: "Thesis link", url: "http://hdl.handle.net/2429/90112" },
+            "Developed data pipelines for 3D volumetric greyscale data",
+            "Researched and implemented many custom convolutional neural network architectures",
+            "Created a custom Keras layer for low-contrast datasets",
+            "Created graphs and figures to demonstrate improvements and results",
+
+          ] } },
+      ],
+      tags: ['software', 'machine-learning-and-ai',  'data-science', 'computer-vision'],
+      images: [
+        "New Photos/Masters Thesis/Results Top.png",
+        "New Photos/Masters Thesis/Results Bottom.png",
+        "New Photos/Masters Thesis/Pipeline.png",
+        "New Photos/Masters Thesis/Architecture.png"
+      ]
+    },
+    {
+      id: 2,
+      title: "ArXiv Publication: 'K-Origins: Better Colour Quantification for Neural Networks'",
+      description: "Developed a custom Keras layer to improve CNN performance and demonstrated reliability.",
+      detailedDescription: [
+        { heading: "Context", content: "This paper forms the first main section of my thesis. Using simple test cases, I observed that convolutional neural networks struggle to distinguish low-contrast colours. To address this, the paper introduces a custom layer designed to overcome this limitation and significantly improve semantic segmentation accuracy." },
+        { heading: "Level of Independence", content: "High Independence: I independently conceived, designed, executed, and wrote this paper in its entirety, including experimental design, constraints, and overall strategy. My supervisor contributed during the editing phase and provided feedback on the diagrams and metrics I used for demonstration." },
+        { heading: "Contributions", content: { type: "list", items: [
+            { type: "link", text: "Publication link", url: "https://doi.org/10.48550/arXiv.2409.02281" },
+            "Created scipts to randomly generate synthetic data for reliability testing",
+            "Created automated testing pipeline to train over 200 models on varying datasets and with varying hyperparameters",
+            "Independently derived important properties of semantic convolutional neural networks",
+            "Created visualizations of performance improvements"
+          ] } },
+      ],
+      tags: [
+        'software', 'applied-mathematics', 'machine-learning-and-ai', 'research-and-development',  'data-science', 'computer-vision'
+      ],
+      images: [
+        "New Photos/K Origins/Korigins.png",
+        "New Photos/K Origins/results.png",
+        "New Photos/K Origins/results one class.png",
+        "New Photos/K Origins/results two class.png"
+      ]
+    },
+    {
+      id: 15,
+      title: "In-Progress: Dash For Your Life",
+      description: "Commercial game in development, a 2D platformer with tools for user-generated levels.",
+      detailedDescription:`I’m developing an indie game inspired by Geometry Dash but with a unique twist that I’m keeping under wraps for now. Currently in a pre-alpha stage, the game already features a functional level editor, player customization, achievements, unlocks, and more. It’s designed with touch-screen compatibility and will be released on Steam (Windows/PC), Android, and iOS. I’ve handled every aspect of the project myself, and I believe it’s shaping up to be something special.`,
+      tags: [
+        'software', 'game-development', 
+      ],
+      images: [
+        "New Photos/Dash For Your Life/Title.png",
+        "New Photos/Dash For Your Life/Gameplay.png",
+        "New Photos/Dash For Your Life/Gameplay 2.png",
+        "New Photos/Dash For Your Life/Customization.png",
+        "New Photos/Dash For Your Life/Editor.png"
+      ]
+    },
+    {
+      id: 3,
+      title: "Capstone Project: Autonomous Agricultural Robot Navigation",
+      description: "Robot navigation using a neural network to learn true obstacles (rock) vs false obstacles (tall grass) in complex terrain.",
+      detailedDescription: [
+        { heading: "Context", content: "For my second capstone project, our team set out to replicate the results of a published paper on custom hardware. The objective was to predict collisions using self-labeled data. We built a multi-modal artificial neural network that incorporated RGB imagery, motor commands, and odometry data. The key innovation was the use of self-labelling, which enabled the model to learn to navigate complex terrains, such as distinguishing between true obstacles and passable ones like tall grass, which may appear obstructive. While our proof of concept was limited to an indoor environment with custom obstacles, we successfully demonstrated that self-labelling could teach this behaviour." },
+        { heading: "Level of Independence", content: "Low Independence: As part of a four-person team, we collaborated closely throughout the project and made decisions jointly at each stage." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Created posters, proposals, and project plans for lay audiences",
+            "3D printed camera mounts and debugged hardware issues",
+            "Gathered training data, monitoring the robot for hour-long trials",
+            "Assisted with motor control firmware and debugging",
+            "Assited with planning and structure of the artificial neural network used"
+          ] } },
+      ],
+      tags: [
+        'robotics', 'electrical-engineering', 'software', 'firmware',
+        'machine-learning-and-ai','computer-vision'
+      ],
+      images: [
+        "New Photos/Autonomous Agbot/ROBOT.jpg",
+        "New Photos/Autonomous Agbot/Problem.png",
+       "New Photos/Autonomous Agbot/machine learning.png",
+        "New Photos/Autonomous Agbot/Hardware.png",
+        "New Photos/Autonomous Agbot/Robot view.png",
+      ]
+    },
+    {
+      id: 12,
+      title: "Internship: Creating Experimental Equipment and Modelling a Chemical Reaction",
+      description: "Led the design and execution of a chemical reaction experiment representative of production conditions.",
+      detailedDescription: [
+        { heading: "Context", content: "This four-month project was conducted for Bioform Technologies Inc., who were interested in the behaviour and feasibility of a specific chemical reaction in production environments. I was responsible for designing experimental equipment, procedures, and tests to collect data, as well as performing both numerical and analytical analysis to address their questions." },
+        { heading: "Level of Independence", content: "Moderate Independence: Most guidance came through high-level discussions, including collaboration with my supervisor to solve the analytical system in non-dimensional form. All other aspects of the project were carried out independently by me." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Proposed experimental procedure and equipment design",
+            "Sourced electrical compontents (pH probe, op-amps, capacitors, resistors, etc.) and soldered/assembled custom designed circuit",
+            "Wired amplifier circuit to convert a 1.5-3 V signal to a 0-5 V signal for increased accuracy with the DAQ",
+            "Created safety protocols, SOP, and other necessary documentation for chemical reaction experiments",
+            "Wrote DAQ data logging firmware to record time-series voltage data from the pH probe",
+            "Wrote pH calibration firmware, using three buffer solutions to check voltage correspondances",
+            "Analytically solved a system of 10 coupled ODEs for the chemical reaction, non-dimensionally.",
+            "Used MATLAB and the obtained trial data to fit analytic coefficients",
+            "Provided information on feasibility of the chemical reaction, and how to improve the reaction for production environments",
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering', 'software', 'firmware', 'materials-engineering', 
+        'applied-mathematics', 'research-and-development',  'data-science'
+      ],
+      images: [
+        "New Photos/Bioform Reactor/Data collection.png",
+        "New Photos/Bioform Reactor/Data Fit.png"
+      ]
+    },
+    {
+      id: 4,
+      title: "Capstone Project: Ovarian Cancer Classifier for Pathology Slides",
+      description: "Classified pathology slides using a custom CNN and LSTM architecture, demonstrating cross-patch information improves accuracy.",
+      detailedDescription: [
+        { heading: "Context", content: "For my first capstone, the sponsor wanted to explore whether integrating LSTM networks with their existing model could improve classification accuracy." },
+        { heading: "Level of Independence", content: "Low Independence: As part of a four-person team, we collaborated closely and shared responsibilities throughout the project." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Discussed project with sponsor to understand requirements and goals",
+            "Created lay audience posters, proposals, and project plans",
+            "Assisted with the training and testing process for the custom artificial neural network",
+          ] } },
+      ],
+      tags: [
+        'software', 'biomedical-engineering', 
+        'machine-learning-and-ai', 'data-science', 'computer-vision'
+      ],
+      images: [
+        "New Photos/Ovarian Pathology/Title Image.png",
+        "New Photos/Ovarian Pathology/Subgrades.png",
+        "New Photos/Ovarian Pathology/Pipeline.png"
+      ]
+    },
+    {
+      id: 7,
+      title: "ENPH 253 Robot Competition",
+      description: "Autonomous Robot competition with a robot built from scratch.",
+      detailedDescription: [
+        { heading: "Context", content: "In second-year Engineering Physics, there’s a major robotics competition where teams design and build robots entirely from scratch to compete in a custom challenge. The project lasts two months, culminating in the robots competing against each other. This year’s goal was for the robots to autonomously grab crystals from the tops of posts and deposit them into a holder. My team built an awesome robot." },
+        { heading: "Level of Independence", content: "Low Independence: As part of a four-person team, we collaborated closely to build the robot. I took the lead on designing the electrical system." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Lead electrical engineering design and execution",
+            "Did the majority of electrical work, including soldering, wiring, and circuit design (Check out my handywork in the pictures :) )",
+            "Wrote firmware for the grabber-crane",
+            "Created robot proposal and project plan",
+            "Assisted with mechanical design and 3D printing of parts from an electrical engineering perspective",
+            "Contributed to team discussions about project plan, shifting requirements, etc"
+          ] } },
+      ],
+      tags: [
+        'robotics', 'electrical-engineering', 'firmware', 
+        'mechanical-engineering',
+
+      ],
+      images: [
+        "New Photos/ENPH253/Robot 1.jpg",
+        "New Photos/ENPH253/Competition.png",
+        "New Photos/ENPH253/Robot 4.png",
+        "New Photos/ENPH253/Robot 3.png",
+        "New Photos/ENPH253/Proposal.png",
+        "New Photos/ENPH253/Proposal 2.png",
+        "New Photos/ENPH253/Robot.png",
+        "New Photos/ENPH253/Competition day.png"
+      ]
+    },
+    {
+      id: 23,
+      title: "Co-op: Test / Software Engineer",
+      description: "Contributed to software and hardware testing, as well as deployment tests.",
+      detailedDescription: [
+        { heading: "Context", content: "Airbeam Wireless Technologies Inc. develops IoT devices for wireless control of industrial lighting. During my four-month co-op, I was initially hired as a test engineer for pre-shipment device testing. However, I quickly expanded my role to include firmware and software testing, firmware development, test suite creation, and hardware debugging. I also took on various other tasks beyond my original responsibilities." },
+        { heading: "Level of Independence", content: "Low Independence: Collaborated with multiple supervisors and teams to accomplish tasks as needed. However, I also made original and independent contributions that I designed myself." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Tested hardware (480V AC), software, and firmware for devices about to be shipped to customers",
+            "Set up devices for customers, including configuring the devices and setting up the systems",
+            "Assisted with the development of the integrated systems testing suite by implementing TCP commands to a heat chamber",
+            "Wrote an automated label-printing for serial numbers during production, saving countless hours of manual work",
+            "Worked on the web-application for the devices, merging code from contracted teams",
+            "Implemented simple hardware debugging rig, allowing devices to be tested using a wall outlet and power cord at 5V, rather than needing a full 480V AC setup, drastically improving safety",
+            "Assisted with writing the hiring documents for UBC Co-op program to ensure the job was desireable",
+            "Quote from lead hardware engineer: `We needed to hire two students to replace you`"
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering', 'software', 'firmware',
+      ],
+      images: [
+        "New Photos/Airbeam Wireless/Pic.png",
+      ]
+    },
+    {
+      id: 9,
+      title: "Co-op Project: Syringe Driver",
+      description: "Reverse engineered a syringe drivers' electrical and firmware system to make it usable without the 'required' software.",
+      detailedDescription: [
+        { heading: "Context", content: "This project, along with the 'Nanolitre Thermal Cycler (NTC),' spanned a total of four months. Hired by the UBC ECE department, I was assigned this sub-project during the planning phase. The BioMEMS lab had around seven syringe drivers that were rendered unusable due to lack of compatible software on current computers, effectively turning each device into a brick. My goal was to reverse engineer one of these devices to make it functional again at a low cost. For about $100, I successfully reverse engineered a syringe driver—potentially saving the lab tens of thousands of dollars. This took roughly 1.5 to 2 months." },
+        { heading: "Level of Independence", content: "High Independence: I completed nearly the entire project independently, with minimal input from my supervisor. I typically checked in with my direct supervisor once or twice a week, but rarely discussed this project during those meetings." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Assembled 3D printer and used it to print syringe driver holder of a SolidWorks drawing I made",
+            "Studied and probed original circuitry, identifying all components and their functions, and how they worked together as a system",
+            "Removed un-neccessary components, and sourced many electrical parts to allow functionality (power sources, controller, lcd screen, amplifiers, etc)",
+            "Integrated my custom system with the original components, and soldered a breadboard to allow the new system to work with the original components",
+            "Created simple components to fit my ciruit within the original enclosure",
+            "Wrote control firmware with basic calibration, allowed the total volume to be set and a specific flow rate per second. Would provide updates as the device was running and valve selection between input and output valves",
+
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering', 'firmware', 'biomedical-engineering',
+        'mechanical-engineering', 'research-and-development', 
+      ],
+      images: [
+        "New Photos/Syringe Drive/Running.png",
+        "New Photos/Syringe Drive/Syringe.jpg",
+        "New Photos/Syringe Drive/Side view.png",
+        "New Photos/Syringe Drive/Control.png",
+        "New Photos/Syringe Drive/Control 2.png",
+        "New Photos/Syringe Drive/Reverse engineer.png",
+        "New Photos/Syringe Drive/Final Circuit.png",
+      ]
+    },
+    {
+      id: 10,
+      title: "Co-op Project: Nanolitre Thermal Cycler",
+      description: "Designed the entire initial prototype for a miniature thermal cycler for DNA PCR.",
+      detailedDescription: [
+        { heading: "Context", content: "This project, along with the 'Syringe Driver,' spanned a total of four months. I spent approximately 2.5 months working on this project. The BC Cancer Research Centre needed a mini-oven capable of holding wafer chips and performing thermal cycling. I was responsible for planning, designing, and executing the project. As my time ran out, I also led the hiring and handoff process for my successor." },
+        { heading: "Level of Independence", content: "High Independence: Although I had regular meetings with the stakeholder (BC Cancer Research), direct supervision and guidance were minimal. My direct supervisor was a PhD student in the BioMEMS lab at UBC ECE. I was responsible for generating all designs and plans independently." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Discussed project with stakeholder to understand requirements and goals",
+            "Created a project plan and timeline for the project",
+            "Designed 54 component SolidWorks assembly of the thermal cycler, involving many rapid prototyping iterations",
+            "3D printed high-temperature resin components using formlabs printer",
+            "Sourced materials and had components machined by a local machine shop, and some on my own with a CNC mill",
+            "Designed and sourced entire closed loop electrical system, including peltier devices based on heat-ramp speeds and temperature requirements, thermistors, and a custom control circuit. Note: In hindsight this needed far less custom-circuitry",
+            "Calibrated thermistor coefficients using testing data and polynomial fitting based on a the producer equation",
+            "Wrote PID firmware layout using object oriented principles",
+            "Led the hiring process for my successor, including writing the job description, reviewing candidate profiles, and training them on the project",
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering', 'firmware', 'biomedical-engineering',
+        'mechanical-engineering', 'research-and-development',
+      ],
+      images: [
+        "New Photos/Thermal Cycler/Assembled.png",
+        "New Photos/Thermal Cycler/Assembled 2.png",
+        "New Photos/Thermal Cycler/CAD.png",
+        "New Photos/Thermal Cycler/CAD 2.png",
+        "New Photos/Thermal Cycler/High temp resin.png",
+        "New Photos/Thermal Cycler/High temp resin 2.png",
+        "New Photos/Thermal Cycler/Base 2.png",
+        "New Photos/Thermal Cycler/Control Circuit.png",
+        "New Photos/Thermal Cycler/Functional Elec V0.png",
+        "New Photos/Thermal Cycler/Rotation encoder.png",
+        "New Photos/Thermal Cycler/Thermistor calibration.png",
+      ]
+    },
+    {
+      id: 11,
+      title: "Co-op Project: Proof of Concept for High-Frequency Wireless CMUT Activation",
+      description: "Created a proof of concept (electrical) that CMUTs can be activated wirelessly with custom inductors.",
+      detailedDescription: [
+        { heading: "Context", content: "Sonus Microsystems Inc. is developing a wearable ultrasound imaging device to monitor cardiac behavior. They were interested in exploring whether their CMUTs could be wirelessly activated via inductive fields. This project lasted two months and was the first half of a four-month term with the UBC HATCH program, the second half was with Bioform Technologies Inc. for the materials engineering position." },
+        { heading: "Level of Independence", content: "High Independence: I met with my supervisor roughly once a week. Guidance focused on overall context and deliverables, with little input on execution or specific suggestions." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Performed significant research on CMUTs, their activation, and the feasibility of wireless activation. Studied high frequency inductive power transfer and parasitic effects at these frequencies",
+            "Designed high frequency AC circuit.",
+            "Hand-wired custom inductors and sourced electrical components to create a high-frequency power transfer system at around 1 MHz",
+            "Researched and sourced digital components to provide a second potential alternate method of activation (This was not part of the original project, but I wanted to do it as it seemed more viable to me based on the parasitics I was experiencing)",
+            "Assembled basic proof of concept circuit and demonstrated feasibility",
+            "Created detailed report, including my suggestions. My main suggestion was actually to activate it digitally, rather than inductively and wirelessly, using a local microcontroller (I sourced related components) with additional components I sourced. If you look on their website, this is the approach they took. That is likely not because of me directly, but it is comforting to know I had the right idea!"
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering','biomedical-engineering',
+        'research-and-development'
+      ],
+      images: [
+        "New Photos/High Freq Power Transfer/CMUT activation.png",
+        "New Photos/High Freq Power Transfer/Proposal.png"
+      ]
+    },
+    {
+      id: 13,
+      title: "Co-op: Experimental Materials Engineering",
+      description: "Experimented with natural hydrogels and their properties, researching hydrophobic chemistries.",
+      detailedDescription: [
+        { heading: "Context", content: "Bioform is an innovative company focused on biodegradable plastic replacements using hydrogels and pulp. They were interested in evaluating the feasibility of new chemical components and reactions, as well as needing assistance with other areas. This project was completed over two months as part of the UBC HATCH program, the first two months of which I spent at Sonus Microsystems Inc." },
+        { heading: "Level of Independence", content: "Moderate Independence: Regular discussions focused on interpreting experimental results. I also contributed original ideas and approaches throughout the project." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Researched complex chemical reactions and hydrophobic chemistries.",
+            "Designed SOPs and safety protocols for chemical reactions and experiments",
+            "Executed a variety of experiments, obtaining relevant data",
+            "Presented findings to the team, and had rapidly shifting priorities based on results",
+            "Sourced, wired, and installed a converter taking 0-20 mA from a DAQ to a 0-20V signal in a pump driver, allowing the pump to be controlled by the DAQ. The design was build based on looking at both devices manuals and input/outputs (MOSFETS, op-amps, etc.)",
+            "Designed and created a more reliable sample making procedure for larger samples with more-consistent thicknessses, which has since been modified and is one of the most prominent ways to create samples for products and samples for clients/investors. In fact, I have at my house the first ever 1 foot by 1 foot sample of product! Prior to this, samples were on the scale of inches and were not very uniform in thicknesses!"
+          ] } },
+      ],
+      tags: [
+        'electrical-engineering', 'materials-engineering', 'research-and-development'
+      ],
+      images: [
+        "New Photos/Bioform Materials/Materials.png",
+        "New Photos/Bioform Materials/Materials 2.png",
+        "New Photos/Bioform Materials/Converters.png"
+      ]
+    },
+    {
+      id: 6,
+      title: "ELEC 291 Robot Competition",
+      description: "Robot competition with a robot controlled through magnetic field. We broke the speed record and placed first in our year.",
+      detailedDescription: [
+        { heading: "Context", content: "A competition involving the entire Electrical Engineering class, where the goal is to create a remote-controlled car that receives communication through an inductive field." },
+        { heading: "Level of Independence", content: "Low Independence: On a team of five, we worked together to make the most impressive robot in the class." },
+        { heading: "Contributions", content: { type: "list", items: [
+          "Wired motor driver circuit",
+          "Worked on firmware for PWM controls",
+          "Helped design a custom CAN inspired communication protocol for the robot with inductive communication",
+          "Led the autonomous navigation functionality, including a claw grabber, sonar sensors, hand made photodiodes using photoresistors and LEDs, and navigation firmware",
+          "Helped with wiring and designing the `iron man` controls for hand motion control, and the LED display showing current behaviour."
+          ] } },
+      ],
+      tags: [
+        'robotics', 'electrical-engineering', 'firmware',
+      ],
+      images: [
+        "New Photos/ELEC291/ELEC ROBOT.jpg",
+        "New Photos/ELEC291/Motion control.png"
+      ]
+    },
+    {
+      id: 5,
+      title: "ENPH 353 Simulated Robot Competition",
+      description: "Simulated robot with Gazebo/ROS navigating a terrain and detecting/parsing license plates with a CNN.",
+      detailedDescription: [
+        { heading: "Context", content: "This project involved a simulated robot competition with two-person teams. The challenge was to create a robot in Gazebo capable of navigating streets, stopping for pedestrians, and identifying multiple license plates on parked cars. The license plates had to be captured, parsed using a convolutional neural network, and the results stored and compared to the true plate numbers. Our team achieved a perfect score for license plate detection and parsing." },
+        { heading: "Level of Independence", content: "Moderate Independence: On a two-person team, my teammate and I focused on different parts of the project but collaborated closely to integrate our solutions seamlessly." },
+        { heading: "Contributions", content: { type: "list", items: [
+            "Implemented simulated robot image processing pipeline using OpenCV and ROS",
+            "Used custom algorithm to detect license plates in images, and used a custom convolutional neural network to parse the license plates",
+            "Trained the neural network on simulated data that was automatically generated"
+          ] } },
+      ],
+      tags: [
+        'robotics', 'software', 'firmware', 'machine-learning-and-ai','computer-vision'
+      ],
+      images: [
+        "New Photos/ENPH353/Track.png",
+        "New Photos/ENPH353/Cam View.png",
+        "New Photos/ENPH353/Segmentation.png"
+      ]
+    },
+    {
+      id: 16,
+      title: "Prototype: Project Dark Videogame",
+      description: "Created a treasure-collecting game prototype with a complex inventory system and a sophisticated random level generator.",
+      detailedDescription: `I created a video game prototype where you sneakily explore a randomly generated haunted mansion. I designed a sophisticated procedural level generation algorithm, along with a complex—but intuitive—inventory system that allows objects of any imaginable shape to be rotated and fit into a Tetris-like grid. The game has been extensively playtested, with one tester logging over 50 hours and still unable to put it down; proof that the gameplay loop is genuinely fun. I’ve also discussed moving forward with an art studio, but this project remains a lower priority among my personal endeavors.`,
+      tags: [
+        'software', 'game-development',
+      ],
+      images: [
+        "New Photos/Project Dark/PD 1.png",
+        "New Photos/Project Dark/PD 2.png",
+        "New Photos/Project Dark/PD 3.png",
+        "New Photos/Project Dark/PD 4.png",
+      ]
+    },
+    {
+      id: 17,
+      title: "In-Progress: Physical Trading Card Game",
+      description: "Created a trading card game with a unique ruleset and mechanics.",
+      detailedDescription: `I’m in the process of creating a trading card game that I’ve been developing on and off for about two years. The gameplay mechanics are nearly finalized and have undergone extensive playtesting. Currently, I’m focused on artwork, card designs, and other creative elements. I’ve put significant thought into aspects like strategic depth and the number of card permutations possible for future expansions. I truly believe I’ve created something special—the perfect card game for me that I genuinely love playing. My plan is to release a physical base game and also develop a 1v1 digital version on Steam. For now, I’m keeping additional details private to protect the intellectual property. If you’re with Wizards of the Coast or Hasbro, feel free to reach out!`,
+      tags: [
+        'game-development', 'research-and-development'
+      ],
+      images: [
+        "New Photos/TCG/TCG cards 2.png",
+        "New Photos/TCG/Picture 1.png"
+      ]
+    },
+    {
+      id: 18,
+      title: "Geometry Dash Community Level: Night Rider",
+      description: "Organized and hosted a collaboration of 40+ creators to make a very artistically impressive level. Achieved 600,000 downloads.",
+      detailedDescription: `I hosted, organized, and published a major collaborative level for the video game Geometry Dash. This project took about two years of on-and-off work and involved over 40 gameplay designers and decorators. The level has received over 600,000 downloads. Artistically, it features a cyberpunk theme with a strong focus on consistency and detail. I managed the gameplay designers and decorators, merged and optimized their contributions for performance, and added additional details myself. The level is widely regarded as one of the most beautiful in the game. It was also awarded first-place featured status by the game’s creator—meaning it was the very first level visible in the online level list—a rare honor given the level’s size and difficulty at the time.`,
+      tags: [
+        'game-development'
+      ],
+      images: [
+        "New Photos/Night Rider/p1.png",
+        "New Photos/Night Rider/p2.png",
+        "New Photos/Night Rider/p3.png",
+        "New Photos/Night Rider/p4.png",
+        "New Photos/Night Rider/p5.png",
+        "New Photos/Night Rider/p6.png",
+        "New Photos/Night Rider/p7.png",
+        "New Photos/Night Rider/p8.png",
+        "New Photos/Night Rider/p9.png",
+      ]
+    },
+    {
+      id: 19,
+      title: "Geometry Dash Community Level: Serpents Wrath",
+      description: "Created a very impressive solo-level, acknowledged by the games' creator. Achieved 370,000 downloads.",
+      detailedDescription: `I created and designed a solo project themed around a snake temple. This level is recognized as one of the most thematically interesting in Geometry Dash and features the game’s first truly randomized boss fight—designed entirely by me—a testament to my artistic creativity. It has received over 370,000 downloads and was awarded first-place featured status by the game’s creator, an extremely rare and prestigious honor. I consider this my magnum opus among Geometry Dash user levels.`,
+      tags: [
+        'game-development'
+      ],
+      images: [
+        "New Photos/Serpents Wrath/p12.png",
+        "New Photos/Serpents Wrath/p1.png",
+        "New Photos/Serpents Wrath/p2.png",
+        "New Photos/Serpents Wrath/p3.png",
+        "New Photos/Serpents Wrath/p4.png",
+        "New Photos/Serpents Wrath/p5.png",
+        "New Photos/Serpents Wrath/p6.png",
+        "New Photos/Serpents Wrath/p7.png",
+        "New Photos/Serpents Wrath/p8.png",
+        "New Photos/Serpents Wrath/p9.png",
+        "New Photos/Serpents Wrath/p10.png",
+        "New Photos/Serpents Wrath/p11.png",
+      ]
+    },
+    {
+      id: 20,
+      title: "Geometry Dash Community Levels: General",
+      description: "Developed many custom levels, achieving over 3 million downloads total.",
+      detailedDescription: `Over a long career designing levels, I’ve worked on countless projects—many of which were featured or acknowledged by the game’s creator, earning first-place or first-page spots that highlight their quality. My published levels have amassed over 3 million downloads, and I’ve contributed to even more levels published by others. I’m known as one of the pioneers of fully-themed levels, creating immersive experiences like space-themed and jungle-themed stages. `,
+      tags: [
+        'game-development'
+      ],
+      images: [
+        "New Photos/Geometry Dash General/yata.png",
+        "New Photos/Geometry Dash General/tota.png",
+        "New Photos/Geometry Dash General/Permafrost.png",
+        "New Photos/Geometry Dash General/Natures essence.png",
+        "New Photos/Geometry Dash General/Grind Zone.png",
+        "New Photos/Geometry Dash General/Event horizon.png",
+        "New Photos/Geometry Dash General/El Dorado.png",
+        "New Photos/Geometry Dash General/Captains voyage.png",
+        "New Photos/Geometry Dash General/candyland.png"
+      ]
+    },
+    {
+      id: 14,
+      title: "LAN Rock-Paper-Scissors Video Game",
+      description: "Basic rock-paper-scissors game that can be played over a LAN network.",
+      detailedDescription: `I created a simple rock-paper-scissors video game that can be played over a LAN network. Built with Godot using RPCs, it’s not flashy but it works.`,
+      tags: [
+        'game-development'
+      ],
+      images: [
+        "New Photos/Rock Paper Scissors/Local Demonstration.png"
+      ]
+    },
+    {
+      id: 8,
+      title: "This Website!",
+      description: "Designed and built this personal portfolio website.",
+      detailedDescription: `I created this website mainly to showcase my full skill set for job searching, since a one-page resume just doesn’t capture all my important experiences. Unlike most of my programming projects, I did use Copilot to help me build this one.`,
+      tags: [
+        'software'],
+      images: [
+        "New Photos/This website/website.png",
+      ]
+    },
+  ];
+
+
+//#endregion
+
+
+  // These are the human-readable tags...
+  const oldtags = [
+    'Robotics', 'Machine Learning', 'Programming', 'Data Science', 'Web Dev',
+    'Embedded Systems', 'Cloud', 'Game Dev', 'AI Research', 'DevOps','Test'
+  ];
+
+  const tags = [
+    'Robotics', 'Electrical Engineering', 'Software', 'Firmware', 'Game Development', 'Biomedical Engineering', 
+    'Materials Engineering', 'Mechanical Engineering', 'Applied Mathematics', 'Machine Learning and AI',
+    'Research and Development', 'Data Science', 'Computer Vision'
+  ];
+
+  const comp_tags = [
+    'robotics', 'electrical-engineering', 'software', 'firmware', 'game-development', 'biomedical-engineering', 'materials-engineering', 
+    'mechanical-engineering', 'applied-mathematics', 'machine-learning-and-ai', 'research-and-development',  'data-science', 'computer-vision'
+  ];
+
+
+//  const tags = [
+//     'Robotics, Game Development, Electrical Engineering, Firmware, Software, Machine Learning, Biomedical Engineering, Materials Engineering, Web Development,'
+//   ];
+
+
+
+  // Map human readable to css-friendly keys...
+  const tagToKey = {
+    'Robotics': 'robotics', 
+    'Electrical Engineering': 'electrical-engineering', 
+    'Software': 'software', 
+    'Firmware': 'firmware', 
+    'Game Development':  'game-development', 
+    'Biomedical Engineering': 'biomedical-engineering', 
+    'Materials Engineering': 'materials-engineering', 
+    'Mechanical Engineering': 'mechanical-engineering', 
+    'Applied Mathematics': 'applied-mathematics', 
+    'Machine Learning and AI': 'machine-learning-and-ai',
+    'Research and Development': 'research-and-development', 
+    'Data Science': 'data-science', 
+    'Computer Vision': 'computer-vision'
+  };
+
+  const oldtagToKey = {
+    'Robotics': 'robotics',
+    'Machine Learning': 'machine-learning',
+    'Programming': 'programming',
+    'Data Science': 'data-science',
+    'Web Dev': 'web-dev',
+    'Embedded Systems': 'embedded-systems',
+    'Cloud': 'cloud',
+    'Game Dev': 'game-dev',
+    'AI Research': 'ai-research',
+    'DevOps': 'devops',
+    'Test': 'test'
+  };
+
+  let selectedTags = [];
+
+  const tagsBar = document.getElementById('tags-bar');
+  const skillContent = document.getElementById('skill-content');
+  const clearBtn = document.getElementById('clear-btn');
+
+  const modal = document.getElementById('project-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalMainImg = document.getElementById('modal-main-img');
+  const modalThumbnails = document.getElementById('modal-thumbnails');
+  const modalClose = document.getElementById('modal-close');
+
+  function createTags() {
+    // Calculate frequency for each tag
+    const tagCounts = {};
+    Object.values(tagToKey).forEach(tagKey => {
+      tagCounts[tagKey] = projects.filter(proj => proj.tags.includes(tagKey)).length;
+    });
+    // Find max count for scaling
+    const maxCount = Math.max(...Object.values(tagCounts), 1);
+
+    tags.forEach(tag => {
+      const tagKey = tagToKey[tag];
+      // Scale bar height: min 30px, max 100px
+      const count = tagCounts[tagKey];
+      const barHeight =  Math.round((count / maxCount) * 70);
+
+      const tagDiv = document.createElement('div');
+      tagDiv.classList.add('tag');
+      tagDiv.dataset.key = tagKey;
+
+      const barFill = document.createElement('span');
+      barFill.className = 'bar-fill';
+      barFill.style.height = `${barHeight}px`;
+      barFill.style.backgroundColor = randomColorForTag(tagKey);
+
+      const tagName = document.createElement('span');
+      tagName.className = 'tag-name';
+      tagName.textContent = tag;
+
+      tagDiv.appendChild(barFill);
+      tagDiv.appendChild(tagName);
+      tagsBar.appendChild(tagDiv);
+
+      tagDiv.addEventListener('click', () => {
+        toggleTagSelection(tagKey);
+      });
+    });
+  }
+
+  function randomColorForTag(tagKey) {
+    const colors = {
+      // 'machine-learning': '#2ecc71',
+      // 'robotics': '#e67e22',
+      // 'programming': '#3498db',
+      // 'data-science': '#9b59b6',
+      // 'web-dev': '#1abc9c',
+      // 'embedded-systems': '#d35400',
+      // 'cloud': '#34495e',
+      // 'game-dev': '#e74c3c',
+      // 'ai-research': '#8e44ad',
+      // 'devops': '#16a085',
+      // 'test': '#16a085'
+    };
+    return colors[tagKey] || '#95a5a6';
+  }
+
+  function toggleTagSelection(tagKey) {
+    if(selectedTags.includes(tagKey)) {
+      selectedTags = selectedTags.filter(t => t !== tagKey);
+    } else {
+      selectedTags.push(tagKey);
+    }
+    updateTagsUI();
+    renderProjects();
+  }
+
+  function updateTagsUI() {
+    const tagDivs = document.querySelectorAll('.tag');
+    tagDivs.forEach(tagDiv => {
+      const key = tagDiv.dataset.key;
+      if(selectedTags.includes(key)) {
+        tagDiv.classList.add('selected');
+      } else {
+        tagDiv.classList.remove('selected');
+      }
+    });
+  }
+function renderProjects() {
+    skillContent.innerHTML = '';
+
+    let filtered;
+    if (selectedTags.length === 0) {
+      filtered = projects;
+    } else {
+      // Find projects with ANY selected tag, and count matches
+      filtered = projects
+        .map(proj => {
+          const matchCount = proj.tags.filter(t => selectedTags.includes(t)).length;
+          return { proj, matchCount };
+        })
+        .filter(item => item.matchCount > 0)
+        .sort((a, b) => b.matchCount - a.matchCount)
+        .map(item => item.proj);
+    }
+
+    if(filtered.length === 0) {
+      skillContent.innerHTML = "<p>No projects match the selected skills.</p>";
+      return;
+    }
+
+    filtered.forEach(proj => {
+      const projDiv = document.createElement('div');
+      projDiv.className = 'project';
+
+      const img = document.createElement('img');
+      img.className = 'project-img';
+      img.src = proj.images[0];
+      img.alt = `Image for ${proj.title}`;
+
+      const textDiv = document.createElement('div');
+      textDiv.style.flexGrow = '1';
+
+      const title = document.createElement('h3');
+      title.textContent = proj.title;
+
+      const desc = document.createElement('p');
+      desc.className = 'description';
+      desc.textContent = proj.description;
+
+      const tagsP = document.createElement('p');
+      tagsP.className = 'tags';
+      const humanTags = proj.tags.map(t => Object.entries(tagToKey).find(([key,val]) => val === t)?.[0] || t);
+      tagsP.textContent = `Tags: ${humanTags.join(', ')}`;
+
+      textDiv.appendChild(title);
+      textDiv.appendChild(desc);
+      textDiv.appendChild(tagsP);
+
+      const learnMoreBtn = document.createElement('button');
+      learnMoreBtn.className = 'learn-more-btn';
+      learnMoreBtn.textContent = 'Learn More';
+      learnMoreBtn.addEventListener('click', () => openModal(proj));
+
+      projDiv.appendChild(img);
+      projDiv.appendChild(textDiv);
+      projDiv.appendChild(learnMoreBtn);
+
+      skillContent.appendChild(projDiv);
+    });
+  }
+
+
+  function openModal(project) {
+    modalTitle.textContent = project.title;
+
+  // Render detailedDescription sections
+  modalDesc.innerHTML = '';
+  if (Array.isArray(project.detailedDescription)) {
+    project.detailedDescription.forEach(section => {
+      const heading = document.createElement('h3');
+      heading.textContent = section.heading;
+      modalDesc.appendChild(heading);
+
+      // Handle different content types
+      if (typeof section.content === 'string') {
+        const para = document.createElement('p');
+        para.textContent = section.content;
+        modalDesc.appendChild(para);
+      } else if (section.content && section.content.type === 'link') {
+        const para = document.createElement('p');
+        const link = document.createElement('a');
+        link.href = section.content.url;
+        link.textContent = section.content.text || section.content.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.color = "#3498db";
+        link.style.textDecoration = "underline";
+        para.appendChild(link);
+        modalDesc.appendChild(para);
+      } else if (section.content && section.content.type === 'list') {
+        const ul = document.createElement('ul');
+        section.content.items.forEach(item => {
+          const li = document.createElement('li');
+          if (typeof item === 'string') {
+            li.textContent = item;
+          } else if (item.type === 'link') {
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.textContent = item.text || item.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.style.color = "#3498db";
+            link.style.textDecoration = "underline";
+            li.appendChild(link);
+          }
+          ul.appendChild(li);
+        });
+        modalDesc.appendChild(ul);
+      }
+    });
+  } else {
+    // fallback for old string descriptions
+    modalDesc.textContent = project.detailedDescription;
+  }
+
+
+
+    // Setup images
+    modalThumbnails.innerHTML = '';
+    modalMainImg.src = project.images[0];
+    modalMainImg.alt = `Main image for ${project.title}`;
+
+    project.images.forEach((imgSrc, idx) => {
+      const thumb = document.createElement('img');
+      thumb.className = 'modal-thumbnail';
+      if(idx === 0) thumb.classList.add('selected');
+      thumb.src = imgSrc;
+      thumb.alt = `Thumbnail ${idx+1} for ${project.title}`;
+      thumb.addEventListener('click', () => {
+        modalMainImg.src = imgSrc;
+        document.querySelectorAll('.modal-thumbnail').forEach(t => t.classList.remove('selected'));
+        thumb.classList.add('selected');
+      });
+      modalThumbnails.appendChild(thumb);
+    });
+
+    modal.style.display = 'flex';
+
+    // Focus modal for accessibility
+    modal.focus();
+  }
+
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  modal.addEventListener('click', e => {
+    if(e.target === modal) modal.style.display = 'none';
+  });
+
+  // Keyboard accessibility for modal
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+    }
+  });
+
+  clearBtn.addEventListener('click', () => {
+    selectedTags = [];
+    updateTagsUI();
+    renderProjects();
+  });
+
+  // Initialize
+  createTags();
+  renderProjects();
+  
+</script>
+
+
+
+  <div class="container about">
+    <p>Property of Lewis Mason. All rights reserved.</p>
+  </div>
+
+
+
 </body>
+
+
+
+
 </html>

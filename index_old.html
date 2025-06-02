@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #ffffff; /* Light green background */
+        }
+
+        .content-container {
+            width: 600px; /* Fixed width for the box */
+            background-color: #ffffff; /* Light background for contrast */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 20px 0; /* Adds margin at the bottom */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #e8f5e9; /* Soft green color */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+
+
+        }
+
+        header text {
+            text-align: center;
+            width: 600px;
+            max-width: 90%;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        header img {
+            width: 600px;
+            max-width: 90%;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            margin: 10px 0 0;
+            font-size: 1.8em;
+            /*color: #2e7d32; /* Dark green for text */
+        }
+
+        main {
+            font-size: 1em;
+            line-height: 1.6;
+            /*color: #1b5e20; /* Darker green for main text */
+        }
+
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            /*color: #33691e; /* Medium green for footer */
+        }
+
+        /* To center the header content above the rectangle */
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .outer-container header {
+            margin-bottom: 10px;
+        }
+
+        .content-figure {
+            width: 100%;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .content-figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .youtube-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .youtube-link a {
+            font-size: 1em;
+            color: #0d47a1; /* Blue color for link */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .youtube-link a:hover {
+            text-decoration: underline;
+        }
+
+        figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #555; /* Subtle grey for captions */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-container">
+        <header>
+            <h1>Lewis Mason</h1>
+
+            <img src="Photos/Profile Picture.jpg" alt="Profile Picture">
+
+        </header>
+        <div class="content-container">
+            <main>
+                <p>Hey! I'm Lewis and welcome to my personal page. To summarize me best, I love to create and build things!</p>
+            </main>
+        </div>
+
+
+        <h1>Technical Projects</h1>
+
+        <div class="content-container">
+            <main>
+                <p>
+                    I have a Masters of Applied Science in Mechanical Engineering (Applied Machine Learning) and a Bachelors of Applied Science in Engineering Physics.
+                    This page just shows a few projects that I am really proud of, but is non-exhaustive.
+                </p>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Thesis/Results.png" alt="Thesis Results"> 
+                        <figcaption>Figure: Thesis results in 3D and 2D for two samples. The problem solved is similar to finding a low contrast "needle-in-a-haystack" in volumetric X-ray images.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Syringe Drive/Syringe.jpg" alt="Syringe Driver"> 
+                        <figcaption>Figure: Reverse engineered a syringe driver electrical and firmware systems.</figcaption>
+                    </figure>
+                </div>
+                
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Robotics/ENPH 2.jpg" alt="Physbot"> 
+                        <figcaption>Figure: Autonomous robot that grabs stones from on-top of posts with varying height. I worked on the electical system and the firmware for the grabber.</figcaption>
+                    </figure>
+                </div>
+                
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Robotics/ENPH 3.jpg" alt="Physbot"> 
+                        <figcaption>Figure: Another angle for the stone-grabbing robot demonstrating my electrical work (the "power tower" and many other components).</figcaption>
+                    </figure>
+                </div>
+
+                <div class="content-figure">
+                    <figure>
+                        <img src="Photos/Robotics/ELEC ROBOT.jpg" alt="Elecbot"> 
+                        <figcaption>Figure: Electromagnetically controlled remote controlled car and signal emitter. I worked on the motor drivers and control system as well as bonus autonomous functionality. Our team placed first out of over 50 teams and set a speed-record.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Robotics/ROBOT.jpg" alt="Agbot"> 
+                        <figcaption>Figure: Autonomous robot, uses machine learning to "learn" good and bad navigation behaviour with respect to obstacles. I worked on data collection and motor controls and help with training the network.</figcaption>
+                    </figure>
+                </div>
+            
+            </main>    
+        </div>
+
+
+        <h1>Game Development</h1>
+
+        <div class="content-container">
+            <main>
+                <p>
+                    I'm a self-taught game developer! Currently I'm working on two commercial projects and a card game. 
+                    I use Godot, but have also tried GameMaker for additional projects not shown here. Also, these pictures are mostly outdated!
+                </p>
+
+                <p>Game 1 (Main Project):</p>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/DFYL 1.png" alt="DFYL 1"> 
+                        <figcaption>Figure: Platformer game title screen.</figcaption>
+                    </figure>
+                </div>
+                
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/dfyl 2.png" alt="DFYL 1"> 
+                        <figcaption>Figure: Platformer game player customization.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/dfyl 3.png" alt="DFYL 1"> 
+                        <figcaption>Figure: Platformer game level editor (Work in progress).</figcaption>
+                    </figure>
+                </div>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/DFYL 4.png" alt="DFYL 1"> 
+                        <figcaption>Figure: Platformer game, playing the built level.</figcaption>
+                    </figure>
+                </div>
+                
+                <p>Game 2 (Backlog):</p>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/art.jpeg" alt="PD Artwork"> 
+                        <figcaption>Figure: Basic sprites and artwork.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 1.png" alt="GP Demonstration"> 
+                        <figcaption>Figure: Screenshot from  in-game, the player is stuck in a haunted manor and has to escape while collecting treasure along the way.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 2.png" alt="Inventory System"> 
+                        <figcaption>Figure: Tetris-like inventory system that supports any shaped inventory and any shaped object.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/PD 4.png" alt="Level Generation"> 
+                        <figcaption>Figure: Demonstration of levels created by my sophisticated level generation algorithm. 
+                            It creates some of the most interesting levels I have ever seen, all resembling a manor. Playable areas are 
+                            represented by coloured zones, and non-playable areas have a dark green texture with flowers dispersed.
+                            The colour of a room represents the key colour required to enter that area.
+                        </figcaption>
+                    </figure>
+                </div>
+                
+                <p>Card Game:</p>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/card game 1.jpg" alt="Card Game"> 
+                        <figcaption>Figure: The card game is finished, however due to the ease of copying a physical game I don't show it here. Instead, here are 
+                            very early card prototypes, which have been updated since.
+                        </figcaption>
+                    </figure>
+                </div>
+                
+                
+            </main>    
+        </div>
+
+
+        <h1>Video Games and Socials</h1>
+
+        <div class="content-container">
+            <main>
+                <!-- Add your text and content here -->
+                
+                <p>I have played videogames my whole life, here are a few of my favorites:</p>
+                
+                <div class="content-figure"> 
+                    <img src="Photos/Other/games.png" alt="Games I like"> 
+                </div>
+
+                <p>I have a YouTube channel where I sometimes upload video game related videos:</p>
+                <div class="youtube-link">
+                    <a href="https://www.youtube.com/@LmAnubis" target="_blank">Visit my YouTube Channel</a>
+                </div>
+
+                <p>I have a Twitch channel where I stream either game development or, less frequently, video games:</p>
+                
+                <div class="youtube-link">
+                    <a href="https://www.twitch.tv/lmanubis" target="_blank">Visit my Twitch Channel</a>
+                </div>
+                
+                <p>I also run a small Discord server for my YouTube and Twitch communities:</p>
+
+                <div class="youtube-link">
+                    <a href="https://discord.gg/QgQJ2HduFc" target="_blank">Visit my Discord Server</a>
+                </div>
+
+
+                <p>
+                    I used to be a community level designer for the video game called "Geometry Dash."
+                    My levels have been collectively downloaded over 2.95 million times! Here are some pictures of my levels:
+                </p>
+
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/nr.png" alt="Level"> 
+                        <figcaption>Figure: Cyberpunk themed collaboration I hosted, organizing and merging the work of 40 builders.</figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/sw.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/eldorado.jpg" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/event horizon.png" alt="Level">
+                        <figcaption></figcaption>
+                    </figure> 
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/natures essence.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+                <div class="content-figure"> 
+                    <figure>
+                        <img src="Photos/Game Development/GD/tota.png" alt="Level"> 
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+
+            </main>
+        </div>
+
+        <div class="content-container">
+            <footer>
+                <!-- Add footer content here -->
+                <p>&copy; 2025 Lewis Mason. All rights reserved.</p>
+            </footer>
+        </div>
+
+
+
+    </div>
+</body>
+</html>
